@@ -1018,10 +1018,17 @@
       </div>
     </footer>
 
-   <style>
+
+
+
+
+
+    
+
+ <style>
   /* ... existing styles ... */
 
-  /* Add/Update these arrow styles */
+  /* New arrow styles - Add after line 725 */
   .slick-prev, 
   .slick-next {
     position: absolute;
@@ -1030,26 +1037,25 @@
     z-index: 10;
     width: 40px;
     height: 40px;
-    background: white !important;  /* Force white background */
+    background: white !important;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
 
   .slick-prev {
-    left: 10px !important;  /* Force left positioning */
+    left: 10px !important;
   }
 
   .slick-next {
-    right: 10px !important;  /* Force right positioning */
+    right: 10px !important;
   }
 
   .slick-prev:before,
   .slick-next:before {
-    color: #d96200 !important;  /* Orange arrow color */
+    color: #d96200 !important;
     font-size: 20px;
   }
 
-  /* Center the slide content */
   .slick-slide {
     display: flex !important;
     justify-content: center;
@@ -1066,13 +1072,13 @@
 </style>
 
 
+
+
+<script src="scripts.js"></script>
 <script
   type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-> 
-</script>
-<script defer  src="scripts.js"></script>
-    
+></script>    
   </body>
 </html>
 
