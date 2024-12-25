@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Asli Astro</title>
+    <link rel="stylesheet" href="privacy-policy.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo-text">
+            <span class="asli">Asli</span>
+            <span class="astro">Astro</span>
+        </a>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                <li><a href="cancellation-refund.html">Cancellation & Refund Policy</a></li>
+                <li><a href="disclaimer.html" class="active">Disclaimer</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h1>Disclaimer</h1>
+            
+            <div class="section">
+                <h2>General Information</h2>
+                <p>The information provided on Asli Astro is for general informational and educational purposes only. While we strive to keep the information up to date and accurate, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the information, products, services, or related graphics contained on the website.</p>
+            </div>
+
+            <div class="section">
+                <h2>Astrological Services</h2>
+                <p>The astrological readings, predictions, and consultations provided through Asli Astro are based on traditional astrological principles and interpretations. Results may vary for each individual, and we do not guarantee specific outcomes or results.</p>
+            </div>
+
+            <div class="section">
+                <h2>Decision Making</h2>
+                <p>Any reliance you place on information or services from Asli Astro is strictly at your own risk. The information should not be used as a substitute for professional advice. Always seek the guidance of qualified professionals for specific personal advice.</p>
+            </div>
+
+            <div class="section">
+                <h2>Third-Party Links</h2>
+                <p>Our website may contain links to external websites. We have no control over the content and nature of these sites and are not responsible for their content or practices.</p>
+            </div>
+
+            <div class="section">
+                <h2>Limitation of Liability</h2>
+                <p>In no event will Asli Astro be liable for any loss or damage including without limitation, indirect or consequential loss or damage, arising from the use of our services or information available on this website.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile navigation -->
+    <div id="scrollIndicator" class="scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+            <li><a href="cancellation-refund.html">Cancellation & Refund Policy</a></li>
+            <li><a href="disclaimer.html" class="active">Disclaimer</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuVisible = false;
+
+        // Update progress and check scroll position
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            checkScrollPosition();
+        });
+
+        function updateProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        }
+
+        function checkScrollPosition() {
+            const nearBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 50;
+            
+            if (nearBottom) {
+                scrollIndicator.classList.add('visible');
+                if (!isMenuVisible) {
+                    mobileMenu.classList.add('visible');
+                    isMenuVisible = true;
+                }
+            } else {
+                scrollIndicator.classList.remove('visible');
+                mobileMenu.classList.remove('visible');
+                isMenuVisible = false;
+            }
+        }
+
+        // Toggle mobile menu on arrow click
+        scrollIndicator.addEventListener('click', function() {
+            mobileMenu.classList.toggle('visible');
+            isMenuVisible = !isMenuVisible;
+        });
+
+        // Check position on page load
+        window.addEventListener('load', checkScrollPosition);
+    </script>
+</body>
+</html> 
