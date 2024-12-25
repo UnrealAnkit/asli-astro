@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation & Refund Policy - Asli Astro</title>
+    <link rel="stylesheet" href="privacy-policy.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo-text">
+            <span class="asli">Asli</span>
+            <span class="astro">Astro</span>
+        </a>
+    </header>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                <li><a href="cancellation-refund.html" class="active">Cancellation & Refund Policy</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <h1>Cancellation & Refund Policy</h1>
+            
+            <div class="section">
+                <h2>No Refund Policy</h2>
+                <p>Since Asli Astro are providing the User with an astrology report which is an informational product for which our astrologers have already spent considerable time and effort – we would be unable to process any refunds on your purchase.</p>
+            </div>
+
+            <div class="section">
+                <h2>Report Accuracy</h2>
+                <p>While Asli Astro will always try to ensure that each report is prepared carefully, however, because astrology is not an exact science and is based on interpretation of birth chart and astrological data and scientific calculations made thereon:</p>
+                <ul class="policy-list">
+                    <li>(a) Asli Astro reports should be considered solely as an opinion based on the principles of astrology;</li>
+                    <li>(b) Asli Astro will not entertain any disputes related to User's comparison of Asli Astro reports with any other astrologer or astrology website's interpretation or similar reports whatsoever.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Technical Errors</h2>
+                <p>Because Asli Astro reports are based on the predictive science of Vedic astrology and not based on any specific published almanac, Asli Astro does not rule out the possibility of unexpected technical or human errors in its reports. In the event of any such error being notified by the User, Asli Astro's liability will, at all times, be limited to the extent of making reasonable efforts in rectifying such error and providing the User with a corrected report.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile navigation -->
+    <div id="scrollIndicator" class="scroll-indicator">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="about-us.html">About Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms-condition.html">Terms & Conditions</a></li>
+                <li><a href="cancellation-refund.html" class="active">Cancellation & Refund Policy</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuVisible = false;
+
+        // Update progress and check scroll position
+        window.addEventListener('scroll', function() {
+            updateProgress();
+            checkScrollPosition();
+        });
+
+        function updateProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        }
+
+        function checkScrollPosition() {
+            const nearBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 50;
+            
+            if (nearBottom) {
+                scrollIndicator.classList.add('visible');
+                if (!isMenuVisible) {
+                    mobileMenu.classList.add('visible');
+                    isMenuVisible = true;
+                }
+            } else {
+                scrollIndicator.classList.remove('visible');
+                mobileMenu.classList.remove('visible');
+                isMenuVisible = false;
+            }
+        }
+
+        // Toggle mobile menu on arrow click
+        scrollIndicator.addEventListener('click', function() {
+            mobileMenu.classList.toggle('visible');
+            isMenuVisible = !isMenuVisible;
+        });
+
+        // Check position on page load
+        window.addEventListener('load', checkScrollPosition);
+    </script>
+</body>
+</html> 
