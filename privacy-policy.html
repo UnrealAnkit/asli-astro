@@ -7,12 +7,6 @@
     <link href="./privacy-policy.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="progress-container">
-        <div class="progress-bar"></div>
-    </div>
-
-    <div class="scroll-indicator"></div>
-
     <header>
         <div class="logo-container">
             <a href="/" class="logo-text">
@@ -20,25 +14,9 @@
                 <span class="astro">Astro</span>
             </a>
         </div>
-        <div class="know-more-btn">
-            <a href="#" class="btn-gradient">KNOW MORE</a>
-        </div>
     </header>
 
     <div class="main-container">
-        <!-- Sidebar for desktop -->
-        <nav class="sidebar">
-            <ul>
-                <li><a href="about-us.html">About Us</a></li>
-                <li class="active"><a href="/privacy-policy">Privacy Policy</a></li>
-                <li><a href="Terms-condition.html">Terms & Condition</a></li>
-                <li><a href="cancellation-refund.html">Cancellation & Refund Policy</a></li>
-                <li><a href="/disclaimer">Disclaimer</a></li>
-                <li><a href="Contact-us.html">Contact Us</a></li>
-            </ul>
-        </nav>
-
-        <!-- Main Content -->
         <main class="content">
             <h1>Privacy Policy</h1>
             <div class="policy-content">
@@ -106,53 +84,68 @@ Creating an account / Registration data: While accessing the Website, the User o
         </main>
     </div>
 
-    <!-- Add this before </body> -->
-    <nav class="mobile-menu">
-        <ul>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="/privacy-policy" class="active">Privacy Policy</a></li>
-            <li><a href="Terms-condition.html">Terms & Condition</a></li>
-            <li><a href="cancellation-refund.html">Cancellation & Refund</a></li>
-            <li><a href="/disclaimer">Disclaimer</a></li>
-            <li><a href="Contact-us.html">Contact Us</a></li>
-        </ul>
-    </nav>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            const progressBar = document.querySelector('.progress-bar');
-            const scrollThreshold = 100;
 
-            // Add click handler for scroll indicator
-            scrollIndicator.addEventListener('click', function() {
-                // Smooth scroll to bottom
-                window.scrollTo({
-                    top: document.documentElement.scrollHeight,
-                    behavior: 'smooth'
-                });
-            });
 
-            window.addEventListener('scroll', function() {
-                const currentScroll = window.scrollY;
-                const windowHeight = window.innerHeight;
-                const documentHeight = document.documentElement.scrollHeight;
-                const scrolled = (currentScroll / (documentHeight - windowHeight)) * 100;
 
-                // Update progress bar
-                progressBar.style.width = scrolled + '%';
 
-                // Show/hide menu and scroll indicator
-                if (documentHeight - (currentScroll + windowHeight) < scrollThreshold) {
-                    mobileMenu.classList.add('visible');
-                    scrollIndicator.classList.remove('visible');
-                } else {
-                    mobileMenu.classList.remove('visible');
-                    scrollIndicator.classList.add('visible');
-                }
-            });
-        });
-    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Your privacy policy content here -->
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/AsliAstro.png" alt="AsliAstro Logo">
+                </div>
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="/services">Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact-us.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            
+                            <li><a href="terms-condition.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html> 
