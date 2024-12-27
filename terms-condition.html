@@ -3,31 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions - Asli Astro</title>
+    
     <link rel="stylesheet" href="privacy-policy.css">
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar"></div>
-    </div>
+    <header>
+        <a href="/" class="logo-text">
+            <span class="asli">Asli</span><span class="astro">Astro</span>
+        </a>
+    </header>
 
-    <!-- Main Content -->
     <div class="main-container">
-        <div class="sidebar">
-            <ul>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="Privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="Terms-condition.html" class="active">Terms & Condition</a></li>
-                <li><a href="cancellation-refund.html">Cancellation & Refund Policy</a></li>
-                <li><a href="/disclaimer">Disclaimer</a></li>
-                <li><a href="Contact-us.html">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="content">
-            <h1>Terms & Conditions</h1>
-
+        <div class="content terms-content">
+            <h2>Terms & Conditions - Asli Astro</h2>
             <p>    These terms and conditions of use (hereinafter referred as "Terms of Use" or "Terms") describe and govern the User's use of the content and services offered by the website www.asliastro.com or through M/s xxxx. (hereinafter, "the Company") (hereinafter referred to as "We", "Us", "Our" or "Website" or "Astrojudge"). </p>
            
             <h2> UPDATION OF TERMS</h2>
@@ -127,53 +115,40 @@
 
 </div>
     </div>
-<strong> </strong>
-    <!-- Scroll Indicator -->
-    <div class="scroll-indicator"></div>
+        
+        </div>
+    </div>
 
-    <!-- Mobile Menu -->
-    <nav class="mobile-menu">
-        <ul>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="Privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="/terms" class="active">Terms & Condition</a></li>
-            <li><a href="cancellation-refund.html">Cancellation & Refund Policy</a></li>
-            <li><a href="/disclaimer">Disclaimer</a></li>
-            <li><a href="Contact-us.html">Contact Us</a></li>
-        </ul>
-    </nav>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const scrollIndicator = document.querySelector('.scroll-indicator');
-            const progressBar = document.querySelector('.progress-bar');
-            const scrollThreshold = 100;
-
-            scrollIndicator.addEventListener('click', function() {
-                window.scrollTo({
-                    top: document.documentElement.scrollHeight,
-                    behavior: 'smooth'
-                });
-            });
-
-            window.addEventListener('scroll', function() {
-                const currentScroll = window.scrollY;
-                const windowHeight = window.innerHeight;
-                const documentHeight = document.documentElement.scrollHeight;
-                const scrolled = (currentScroll / (documentHeight - windowHeight)) * 100;
-
-                progressBar.style.width = scrolled + '%';
-
-                if (documentHeight - (currentScroll + windowHeight) < scrollThreshold) {
-                    mobileMenu.classList.add('visible');
-                    scrollIndicator.classList.remove('visible');
-                } else {
-                    mobileMenu.classList.remove('visible');
-                    scrollIndicator.classList.add('visible');
-                }
-            });
-        });
-    </script>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/AsliAstro.png" alt="AsliAstro Logo">
+                </div>
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <ul>
+                            <li><a href="/services">Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact-us.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-condition.html">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
-</html> 
+</html>  
