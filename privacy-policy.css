@@ -1,0 +1,770 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    padding: 1rem 2rem;
+    background: #fff;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.logo-text {
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.logo-text .asli {
+    color: #ef6c00; /* orange-500 */
+}
+
+.logo-text .astro {
+    color: #070707; /* black */
+}
+
+/* Main content styles */
+.main-container {
+    min-height: calc(100vh - 180px);
+    padding: 2rem;
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0;
+    position: relative;
+}
+
+/* Add top border line */
+.content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    border-top: 4px dotted #aa4d00; /* orange-700 */
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #070707; /* black */
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+    border-bottom: 3px dotted #833b00; /* orange-800 */
+}
+
+.policy-content {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.policy-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #070707; /* black */
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: none;
+}
+
+.policy-content h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1.5rem 0;
+    color: #FFFFFF;
+    background-color: #070707; /* black */
+    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.policy-content > p,
+.policy-content > div {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+    padding: 2rem;
+}
+
+/* Keep existing text styles */
+.policy-content strong {
+    color: #070707; /* black */
+    font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .policy-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .policy-content h2 {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+
+    .policy-content > p,
+    .policy-content > div {
+        padding: 1.5rem;
+    }
+}
+
+/* Footer styles */
+footer {
+    background-color: #000000;
+    padding: 3rem 2rem;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    flex-shrink: 0;
+    margin-right: 4rem;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+    filter: brightness(0) invert(1); /* Make logo visible in dark footer */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.footer-column h3 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+    color: #9CA3AF;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-content {
+        display: block;
+    }
+
+    .footer-logo {
+        margin-bottom: 2rem;
+        text-align: left;
+        padding-left: 1.5rem;
+    }
+
+    .footer-logo img {
+        width: 120px;
+    }
+
+    .footer-grid {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+
+    .footer-column h3 {
+        font-size: 15px;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-column ul li a {
+        font-size: 13px;
+        color: #9CA3AF;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .footer-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .footer-column {
+        flex: 0 0 auto;
+    }
+
+    .footer-logo img {
+        width: 100px;
+    }
+
+    .footer-column h3 {
+        font-size: 14px;
+    }
+
+    .footer-column ul li a {
+        font-size: 12px;
+    }
+
+    .footer-logo {
+        padding-left: 1rem;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 1rem;
+    }
+    
+    .content {
+        padding: 0 1rem;
+    }
+}
+
+/* Remove top border for terms page */
+.terms-content::before {
+    display: none;
+}
+
+/* Add bottom border line for terms page */
+.terms-content {
+    position: relative;
+    border-top: 3px dotted #833b00; /* orange-800 */
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+/* Keep the existing rule to remove the ::before pseudo-element */
+.terms-content::before {
+    display: none;
+}
+
+/* Terms & Conditions Card Styles */
+.terms-content {
+    position: relative;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.terms-content h2 {
+    font-size: 1.5rem;
+    background-color: #070707;
+    color: #FFFFFF;
+    padding: 1.25rem 2rem;
+    margin: 2rem 0 1.5rem 0;
+    border-radius: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terms-content > p {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    margin: 1.5rem 0 2.5rem 0;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+    padding: 2rem;
+    color: #141414;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* First header special styling */
+.terms-content h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .terms-content {
+        margin-top: 20px;
+    }
+
+    .terms-content h2 {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+
+    .terms-content > p {
+        padding: 1.5rem;
+        margin: 1rem 0 2rem 0;
+    }
+}
+
+/* About page styles */
+.about-content {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.about-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #070707; /* black */
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: none;
+}
+
+.about-content .section {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+.about-content .section h2 {
+    font-size: 1.5rem;
+    margin: -2rem -2rem 1.5rem -2rem;
+    color: #FFFFFF;
+    background-color: #070707; /* black */
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-content .section p {
+    padding: 0 2rem 2rem 2rem;
+    margin: 0;
+    color: #141414; /* black2 */
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .about-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .about-content .section h2 {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    }
+
+    .about-content .section p {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+/* Footer logo styles */
+.footer-logo-text {
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.footer-logo-text .asli {
+    color: #ef6c00; /* orange-500 */
+}
+
+.footer-logo-text .astro {
+    color: #FFFFFF; /* white for footer */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .about-content h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-content h2 {
+        font-size: 1.25rem;
+        margin-top: 2rem;
+    }
+
+    .about-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Contact page styles - remove dots */
+.contact-content {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.contact-content::before {
+    display: none; /* Remove top dotted line */
+}
+
+.contact-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #070707; /* black */
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: none; /* Remove bottom dotted line */
+}
+
+/* Card styles */
+.section {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #141414; /* black2 */
+    border-bottom: 2px solid #fad1b0; /* orange-100 */
+    padding-bottom: 0.75rem;
+}
+
+/* Enhanced Form styles with better borders */
+.contact-form {
+    max-width: 600px;
+    margin-top: 1.5rem;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1); /* Subtle black border using your black color */
+}
+
+/* Card header style */
+.section h2 {
+    font-size: 1.5rem;
+    margin: -2rem -2rem 1.5rem -2rem;
+    color: #FFFFFF;
+    background-color: #070707;
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle line in header */
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.form-group:after {
+    content: '';
+    position: absolute;
+    bottom: -0.9rem;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background-color: rgba(7, 7, 7, 0.05); /* Very subtle separator */
+}
+
+.form-group:last-child:after {
+    display: none;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(7, 7, 7, 0.15); /* Darker border for inputs */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #141414;
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: rgba(7, 7, 7, 0.25); /* Darker on hover */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ef6c00;
+    box-shadow: 0 0 0 3px rgba(239, 108, 0, 0.1);
+}
+
+.submit-btn {
+    background-color: #ef6c00;
+    color: #FFFFFF;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: calc(100% - 4rem);
+    margin: 0 2rem 2rem 2rem;
+    position: relative;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #d96200;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Contact info card enhancement */
+.contact-info {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    color: #141414;
+    padding: 0.5rem 2rem;
+    border-bottom: 1px solid rgba(7, 7, 7, 0.05);
+}
+
+.contact-info p:last-child {
+    border-bottom: none;
+}
+
+.contact-info strong {
+    color: #070707; /* black */
+    font-weight: 600;
+    min-width: 80px;
+    display: inline-block;
+}
+
+/* Section enhancement */
+.section {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+.section > p {
+    padding: 0 2rem 2rem 2rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .form-group:after {
+        left: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+        padding: 0 1.5rem;
+    }
+
+    .contact-info p {
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+/* Remove any other potential borders */
+header::after,
+header::before {
+    display: none;
+}
+
+/* Privacy Policy card styles */
+.privacy-content {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.privacy-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #070707; /* black */
+    text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: none;
+}
+
+.privacy-content .section {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+}
+
+.privacy-content .section h2 {
+    font-size: 1.5rem;
+    margin: -2rem -2rem 1.5rem -2rem;
+    color: #FFFFFF;
+    background-color: #070707; /* black */
+    padding: 1.25rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.privacy-content .section p {
+    padding: 0 2rem 2rem 2rem;
+    margin: 0;
+    color: #141414; /* black2 */
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.privacy-content .section p:last-child {
+    padding-bottom: 2rem;
+}
+
+/* Keep existing text styles */
+.privacy-content strong {
+    color: #070707; /* black */
+    font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .privacy-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .privacy-content .section h2 {
+        font-size: 1.25rem;
+        padding: 1rem 1.5rem;
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+    }
+
+    .privacy-content .section p {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+}
+
+/* Privacy Policy specific section styles */
+.policy-content h2[id="user-consent"],
+.policy-content h2:contains("USER CONSENT"),
+.policy-content h2:contains("COMMITMENT"),
+.policy-content h2:contains("INFORMATION COLLECTED BY WEBSITE") {
+    background-color: #070707;
+    color: #FFFFFF;
+    padding: 1.25rem 2rem;
+    border-radius: 12px 12px 0 0;
+    margin-top: 2rem;
+}
+
+/* Container for these specific sections */
+.policy-content h2:contains("USER CONSENT") + p,
+.policy-content h2:contains("COMMITMENT") + p,
+.policy-content h2:contains("INFORMATION COLLECTED BY WEBSITE") + p {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(7, 7, 7, 0.1);
+    border-radius: 0 0 12px 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Add space between sections */
+.policy-content h2 {
+    margin-top: 3rem;
+}
+
+.policy-content h2:first-of-type {
+    margin-top: 2rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .policy-content h2:contains("USER CONSENT"),
+    .policy-content h2:contains("COMMITMENT"),
+    .policy-content h2:contains("INFORMATION COLLECTED BY WEBSITE") {
+        padding: 1rem 1.5rem;
+    }
+
+    .policy-content h2:contains("USER CONSENT") + p,
+    .policy-content h2:contains("COMMITMENT") + p,
+    .policy-content h2:contains("INFORMATION COLLECTED BY WEBSITE") + p {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+}

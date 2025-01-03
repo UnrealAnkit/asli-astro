@@ -72,13 +72,13 @@
           </a>
         </div>
         <nav class="text-black1 gap-8 flex items-center justify-between">
-          <a href="#shop">Shop</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact</a>
+          <a href="Products.html">Shop</a>
+          <a href="#block_reviews" class="testimonials-link">Testimonials</a>
+          <a href="contact-us.html">Contact</a>
           <button
             class="free-session text-white bg-black1 rounded-[35px] py-3 px-4 border border-black1 shadow-3xl"
           >
-            Claim Your Free Session
+            Claim Your 2025 Session
           </button>
         </nav>
       </header>
@@ -93,7 +93,7 @@
         <button
           class="free-session ml-auto bg-black1 text-white rounded-[35px] py-3 px-4 border border-black1 shadow-3xl"
         >
-          Claim Your Free Session
+          Claim Your 2025 Career Session
         </button>
       </header>
       <div
@@ -127,19 +127,20 @@
           <span
             class="w-full border-b-2 border-white border-opacity-50 text-white flex items-center justify-between"
           >
-            <a class="w-full text-xl py-2" href="">Testimonials</a>
+            <a class="w-full text-xl py-2 testimonials-link" href="#block_reviews">Testimonials</a>
             <i class="fa-solid text-2xl fa-arrow-right"></i>
           </span>
           <span
             class="w-full border-b-2 border-white border-opacity-50 text-white flex items-center justify-between"
           >
-            <a class="w-full text-xl py-2" href="./index.html">Contact</a>
+            <a class="w-full text-xl py-2" href="#contact">Contact</a>
             <i class="fa-solid text-2xl fa-arrow-right"></i>
           </span>
           <button
             class="free-session md:text-[14px] text-white my-8 bg-black1 rounded-[35px] py-3 px-4 border border-white border-opacity-50 shadow-3xl"
+            onclick="window.location.href='./payment/Career-Payment.html'"
           >
-            Claim Your Free Session
+            Claim Your 2025 Session
           </button>
         </nav>
       </div>
@@ -156,7 +157,7 @@
           <button
             class="mr-auto md:mx-auto capitalize md:font-medium flex items-center justify-center mt-8 shadow-btnShadow2 gap-2 bg-orange-600 text-white px-8 py-3 rounded-full"
           >
-            Book session
+            <a href="./payment/Career-Payment.html">Book 2025 session</a>
           </button>
         </div>
         <img
@@ -365,8 +366,8 @@
                 <strong class="font-bold text-2xl">Tailored Parenting:</strong
                 ><br />
                 <span class="text-gray-700 leading-7">
-                  Every child’s learning style, emotional needs, and potential
-                  talents are hidden in their nakshatras. While they’re not 100%
+                  Every child's learning style, emotional needs, and potential
+                  talents are hidden in their nakshatras. While they're not 100%
                   accurate for everyone, you can 100% get an asli (real)
                   understanding of what you need to do as a parent, what career
                   your child should pick and what you should do to protect your
@@ -405,32 +406,51 @@
               </li>
             </ul>
           </div>
-          <div id="block_reviews" class="hidden">
-            <p class="font-normal text-xl text-gray-500">
-              Elit irure minim nulla consequat ut ut irure. Nulla nisi amet elit
-              cupidatat duis enim ut. Magna enim occaecat non tempor ea
-              exercitation commodo. Duis exercitation pariatur veniam tempor.
-            </p>
 
-            <ul class="list-disc pl-4 font-normal text-xl text-gray-500 py-3">
-              <li>
-                Sit quis fugiat in laborum ipsum anim pariatur voluptate tempor
-                culpa nulla.
-              </li>
-              <li>
-                Sit quis fugiat in laborum ipsum anim pariatur voluptate tempor
-                culpa nulla.
-              </li>
-              <li>
-                Sit quis fugiat in laborum ipsum anim pariatur voluptate tempor
-                culpa nulla.
-              </li>
-              <li>
-                Sit quis fugiat in laborum ipsum anim pariatur voluptate tempor
-                culpa nulla.
-              </li>
-            </ul>
+          <!-- Add this where you want the reviews section to appear -->
+          <div id="block_reviews" class="hidden">
+            <!-- Reviews Stats Section -->
+            <div class="reviews-stats mb-8 p-6 bg-white rounded-lg shadow-md">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-bold">Customer Reviews</h3>
+                <div class="flex items-center">
+                  <span class="text-3xl font-bold text-orange-500">4.8</span>
+                  <span class="text-gray-500 ml-2">/ 5</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-star text-orange-500"></i>
+                <i class="fas fa-star text-orange-500"></i>
+                <i class="fas fa-star text-orange-500"></i>
+                <i class="fas fa-star text-orange-500"></i>
+                <i class="fas fa-star-half-alt text-orange-500"></i>
+                <span class="text-gray-500 ml-2">(25 reviews)</span>
+              </div>
+            </div>
+
+            <!-- Reviews Container -->
+            <div class="reviews-container">
+              <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
+                <!-- Reviews will be dynamically inserted here -->
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination flex items-center justify-center gap-2 mt-8">
+              <button class="prev-page px-4 py-2 bg-gray-200 text-gray-700 rounded-lg">
+                <i class="fas fa-chevron-left text-sm"></i>
+              </button>
+              <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-page="1">1</button>
+              <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-page="2">2</button>
+              <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-page="3">3</button>
+              <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-page="4">4</button>
+              <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg" data-page="5">5</button>
+              <button class="next-page px-4 py-2 bg-gray-200 text-gray-700 rounded-lg">
+                <i class="fas fa-chevron-right text-sm"></i>
+              </button>
+            </div>
           </div>
+
           <div id="block_faq" class="hidden">
             <div class="faq-accordion space-y-6">
               <!-- Accordion 1 -->
@@ -736,7 +756,7 @@
         <button
           class="mr-auto md:mx-auto capitalize md:font-medium flex items-center justify-center mt-8 shadow-btnShadow2 gap-2 bg-orange-600 text-white px-8 py-3 rounded-full"
         >
-          Book session
+          <a href="./payment/Career-Payment.html">Book 2025 session</a>
         </button>
       </div>
       <img
@@ -746,67 +766,6 @@
       />
     </div>
 
-    <!-- <section class="px-20 my-8 md:px-8">
-      <h3 class="capitalize text-3xl mb-8">Similar Items you might like</h3>
-      <div class="grid grid-cols-3 gap-6 md:grid-cols-1">
-        <div
-          class="!flex flex-col justify-between gap-2 !h-[600px] shadow-md bg-white rounded-lg py-6 px-6"
-        >
-          <img
-            src="./images/services/1.png"
-            class="w-full h-[250px] object-cover"
-            alt=""
-          />
-          <div class="details">
-            <div
-              class="flex flex-row justify-between font-semibold text-xl items-center"
-            >
-              <h4 class="text-2xl">Child Astrology</h4>
-              <p class="text-end">₹ 4000</p>
-            </div>
-            <div class="flex flex-row justify-between my-2 items-start">
-              <p
-                class="flex text-sm font-normal items-center justify-start gap-2 text-gray-600"
-              >
-                <img src="./images/star-review.svg" alt="" />4.2
-                <span class="text-gray-400">&nbsp;(25 reviews)</span>
-              </p>
-              <p class="text-end text-green1 text-[17px] md:text-sm">
-                25% off on 1<sup>st</sup> booking
-              </p>
-            </div>
-            <div class="h-[1px] w-full my-2 bg-gray-400"></div>
-            <div class="description text-sm">
-              <p class="">
-                Get guidance to support their development & growth with
-                personalised astrological report
-              </p>
-              <p class="">Includes:</p>
-
-              <ol class="list-disc ml-4">
-                <li>Kundli and Divisional birth charts</li>
-                <li>horoscope analysis</li>
-                <li>Child's Ayurvedic Dosha +more</li>
-              </ol>
-            </div>
-          </div>
-          <div
-            class="!my-0 !important actions flex items-center justify-between md:gap-2"
-          >
-            <button
-              class="border-orange-400 rounded-lg text-base border font-medium w-[175px] h-[42px] text-orange-500"
-            >
-              View Details
-            </button>
-            <button
-              class="bg-orange-400 text-base rounded-lg font-medium w-[175px] h-[42px] text-white"
-            >
-              Buy Now
-            </button>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <footer
       class="mt-4 mb-0 flex justify-between flex-row w-full p-28 md:px-14 md:pb-8 bg-black"
     >
@@ -950,6 +909,231 @@
           $(this)
             .find(".faq-icon")
             .toggleClass("fa-chevron-down fa-chevron-up");
+        });
+
+        // Add click handler for testimonials links
+        $('.testimonials-link').on('click', function(e) {
+          e.preventDefault();
+          
+          // Switch to reviews tab
+          $('#tab_reviews').click();
+          
+          // Smooth scroll to reviews section
+          $('html, body').animate({
+            scrollTop: $('#block_reviews').offset().top - 100
+          }, 500);
+
+          // If burger menu is open, close it
+          if ($('#burger-menu').is(':visible')) {
+            $('#burger-menu').hide();
+          }
+        });
+
+        // Update click handler for free session buttons
+        $('.free-session').on('click', function(e) {
+          e.preventDefault();
+          window.location.href = './payment/Career-Payment.html';
+        });
+
+        // Add click handler for book session button
+        $('.book-session-btn').on('click', function(e) {
+          e.preventDefault();
+          window.location.href = './payment/Career-Payment.html';
+        });
+      });
+
+      $(document).ready(function () {
+        const careerReviews = [
+          // Page 1 (1-6)
+          {
+            text: "The career guidance was spot on! It helped me focus on my strengths and choose the right path. Highly recommend! 🌟",
+            author: "Rohan S., Mumbai",
+            rating: 5
+          },
+          {
+            text: "I was skeptical at first, but the insights were incredibly accurate. My career has taken a positive turn! 👍",
+            author: "Anjali P., Delhi",
+            rating: 5
+          },
+          {
+            text: "The report provided clarity on my career goals. I feel more confident in my decisions now. 🙌",
+            author: "Vikram K., Bangalore",
+            rating: 4
+          },
+          {
+            text: "Amazing service! The career advice was practical and easy to implement. Thank you! 😊",
+            author: "Priya M., Chennai",
+            rating: 5
+          },
+          {
+            text: "The insights into my career potential were eye-opening. I am now pursuing a path I truly enjoy. 🚀",
+            author: "Amit R., Pune",
+            rating: 5
+          },
+          {
+            text: "The guidance helped me identify my strengths and weaknesses. I'm now on a better career path. 💼",
+            author: "Neha T., Hyderabad",
+            rating: 4
+          },
+          // Page 2 (7-12)
+          {
+            text: "The career report was detailed and insightful. It has made a significant impact on my professional life. 🌟",
+            author: "Sanjay L., Kolkata",
+            rating: 5
+          },
+          {
+            text: "I found the career advice very helpful. It gave me a new perspective on my professional journey. 🔍",
+            author: "Ritu J., Ahmedabad",
+            rating: 5
+          },
+          {
+            text: "The report was comprehensive and easy to understand. It has guided me towards a fulfilling career. 📈",
+            author: "Karan D., Jaipur",
+            rating: 4
+          },
+          {
+            text: "The career insights were incredibly accurate. I am now more focused and motivated. 💪",
+            author: "Meera S., Lucknow",
+            rating: 5
+          },
+          {
+            text: "The guidance was practical and actionable. I have already started seeing positive changes in my career. 🌟",
+            author: "Rajesh N., Surat",
+            rating: 5
+          },
+          {
+            text: "The career report was a game-changer for me. I am now on a path that aligns with my true potential. 🌟",
+            author: "Pooja B., Bhopal",
+            rating: 5
+          },
+          // Page 3 (13-18)
+          {
+            text: "The insights provided were invaluable. I have a clearer vision of my career goals now. 👀",
+            author: "Deepak G., Indore",
+            rating: 4
+          },
+          {
+            text: "The career advice was tailored to my needs. I feel more confident in my professional journey. 💼",
+            author: "Smita R., Patna",
+            rating: 5
+          },
+          {
+            text: "The report was detailed and insightful. It has helped me make informed career decisions. 📊",
+            author: "Alok M., Chandigarh",
+            rating: 5
+          },
+          {
+            text: "The career guidance was practical and easy to follow. I am now on a more fulfilling path. 🌟",
+            author: "Rakesh K., Ranchi",
+            rating: 4
+          },
+          {
+            text: "The insights into my career potential were spot on. I am now pursuing a path I truly enjoy. 🚀",
+            author: "Sunita P., Guwahati",
+            rating: 5
+          },
+          {
+            text: "The career report was comprehensive and easy to understand. It has guided me towards success. 📈",
+            author: "Manoj T., Kochi",
+            rating: 5
+          },
+          // Page 4 (19-24)
+          {
+            text: "The guidance was practical and actionable. I have already started seeing positive changes. 🌟",
+            author: "Geeta S., Dehradun",
+            rating: 5
+          },
+          {
+            text: "The career insights were incredibly accurate. I am now more focused and motivated than ever. 💪",
+            author: "Arun K., Coimbatore",
+            rating: 5
+          },
+          {
+            text: "The report provided clarity on my career goals. I feel more confident in my path forward. 🙌",
+            author: "Vivek K., Thane",
+            rating: 4
+          },
+          {
+            text: "The career guidance was excellent! It helped me focus on my true strengths. Highly recommend! 🌟",
+            author: "Anita D., Patna",
+            rating: 5
+          },
+          {
+            text: "The insights into my career potential were eye-opening. I found my true calling. 🚀",
+            author: "Rakesh M., Ranchi",
+            rating: 5
+          },
+          {
+            text: "The career report was detailed and insightful. It changed my professional trajectory. 🌟",
+            author: "Sunita P., Guwahati",
+            rating: 5
+          },
+          // Page 5 (25) - Only one review
+          {
+            text: "The guidance helped me identify my true potential. I'm now on an exciting career path. Best decision ever! 💼",
+            author: "Manoj T., Kochi",
+            rating: 5
+          }
+        ];
+
+        let currentPage = 1;
+        const reviewsPerPage = 6;
+        const totalPages = Math.ceil(careerReviews.length / reviewsPerPage);
+
+        function getStarRating(rating) {
+          return Array(rating).fill('<i class="fas fa-star text-orange-500"></i>').join('');
+        }
+
+        function renderCareerReviews(page) {
+          const start = (page - 1) * reviewsPerPage;
+          const end = page === 5 ? careerReviews.length : start + reviewsPerPage;
+          const pageReviews = careerReviews.slice(start, end);
+
+          let reviewsHTML = '';
+          pageReviews.forEach(review => {
+            reviewsHTML += `
+              <div class="review-card p-6 bg-white rounded-lg shadow-md">
+                <p class="mb-4 text-gray-700 text-lg">${review.text}</p>
+                <div class="flex items-center justify-between">
+                  <strong class="text-orange-600">${review.author}</strong>
+                  <div class="flex gap-1">
+                    ${getStarRating(review.rating)}
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+
+          $('.reviews-container .grid').html(reviewsHTML);
+
+          // Update pagination buttons
+          $('.pagination button').removeClass('bg-orange-500 text-white').addClass('bg-gray-200 text-gray-700');
+          $(`.pagination button[data-page="${page}"]`).removeClass('bg-gray-200 text-gray-700').addClass('bg-orange-500 text-white');
+        }
+
+        // Initial render
+        renderCareerReviews(1);
+
+        // Pagination click handlers
+        $('.pagination button').on('click', function() {
+          if ($(this).hasClass('prev-page') && currentPage > 1) {
+            currentPage--;
+          } else if ($(this).hasClass('next-page') && currentPage < totalPages) {
+            currentPage++;
+          } else if ($(this).data('page')) {
+            currentPage = parseInt($(this).data('page'));
+          }
+          renderCareerReviews(currentPage);
+        });
+
+        // Tab click handlers
+        $('#tab_reviews').on('click', function() {
+          $('#block_reviews').removeClass('hidden');
+          $('#block_desc').addClass('hidden');
+          $('#block_faq').addClass('hidden');
+          $('#tab_reviews').addClass('border-b-2').removeClass('border-b-0');
+          $('#tab_desc').removeClass('border-b-2').addClass('border-b-0');
+          $('#tab_faq').removeClass('border-b-2').addClass('border-b-0');
         });
       });
     </script>
