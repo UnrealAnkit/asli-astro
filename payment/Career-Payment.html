@@ -20,7 +20,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeqHptX2h2cJQadBRfjVfTui9u__uJ9oc&libraries=places"></script>
     <style>
-      body {
+/*       body {
         background-color: #fffaf5;
         font-family: "General Sans", sans-serif;
       }
@@ -73,13 +73,169 @@
         .grid-cols-2 {
           grid-template-columns: 1fr;
         }
+      } */
+
+
+
+ <style>
+      body {
+        background-color: #fffaf5;
+        font-family: "General Sans", sans-serif;
       }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      .accordion-content.active {
+        max-height: 1000px;
+        transition: max-height 0.5s ease-in;
+      }
+      .form-group {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      .input-field {
+        border: 1px solid #d1d5db;
+        background-color: rgba(255, 255, 255, 0.1);
+        height: 3rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: #f97316;
+        box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+      }
+      .country-code {
+        background-color: #e5e7eb;
+        color: #4b5563;
+        border: 1px solid #d1d5db;
+        border-right: none;
+        border-top-left-radius: 0.375rem;
+        border-bottom-left-radius: 0.375rem;
+      }
+      .phone-input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .error-message {
+        color: #ef4444;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+      }
+      .error-input {
+        border-color: #ef4444;
+      }
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        .grid-cols-2 {
+          grid-template-columns: 1fr;
+        }
+        h2.text-2xl {
+          font-size: 1.5rem;
+        }
+        .accordion-header {
+          padding: 0.75rem;
+        }
+        .input-field {
+          height: 2.5rem;
+        }
+        .p-4 {
+          padding: 1rem;
+        }
+        .mb-4 {
+          margin-bottom: 0.75rem;
+        }
+        #proceedToPaymentButton,
+        #proceedToPaymentButtonMobile {
+          width: 100%;
+          padding: 0.75rem 1rem;
+          margin-top: 1rem;
+          font-size: 1rem;
+        }
+        .form-group {
+          padding: 1rem;
+        }
+        label {
+          font-size: 0.875rem;
+        }
+        .accordion {
+          margin-bottom: 0.5rem;
+        }
+        .text-2xl.font-bold.text-orange-600 {
+          font-size: 1.25rem;
+        }
+        .mb-6 {
+          margin-bottom: 1rem;
+        }
+        
+        /* Make back button more touch-friendly on mobile */
+        [href="../index.html"] {
+          padding: 0.75rem 1rem;
+          width: fit-content;
+        }
+      }
+      @media (max-width: 360px) {
+        body {
+          padding: 0.5rem;
+        }
+        .input-field {
+          font-size: 0.875rem;
+        }
+        h2.text-2xl {
+          font-size: 1.25rem;
+        }
+      }
+      @media (max-height: 500px) and (orientation: landscape) {
+        .container {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+        .grid {
+          gap: 1rem;
+        }
+      }
+      /* Optional: Add a subtle pulse animation on hover */
+      @keyframes subtle-pulse {
+        0% { transform: scale(1) translateX(0); }
+        50% { transform: scale(1.02) translateX(-2px); }
+        100% { transform: scale(1) translateX(0); }
+      }
+
+      [href="../index.html"]:hover {
+        animation: subtle-pulse 1s infinite;
+      }
+    </style>
+      
     </style>
   </head>
   <body class="text-gray-800 p-4">
     <div
       class="max-w-4xl mx-auto bg-white bg-opacity-10 rounded-lg shadow-lg p-4 sm:p-6"
     >
+      <!-- Back Button  -->
+      <div class="mb-6">
+        <a href="../index.html" 
+           class="group inline-flex items-center px-4 py-2 rounded-lg 
+                  bg-white/10 hover:bg-orange-50 
+                  text-orange-600 hover:text-orange-700
+                  shadow-sm hover:shadow-md
+                  transform transition-all duration-200 hover:-translate-x-1">
+            <svg class="w-5 h-5 mr-2 transform transition-transform group-hover:-translate-x-1" 
+                 fill="none" 
+                 stroke="currentColor" 
+                 viewBox="0 0 24 24">
+                <path stroke-linecap="round" 
+                      stroke-linejoin="round" 
+                      stroke-width="2" 
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            <span class="font-medium">Back to Home</span>
+        </a>
+      </div>
       <h2 class="text-2xl sm:text-3xl font-bold text-orange-500 mb-4 sm:mb-6">
         Child's Birth Details
       </h2>
