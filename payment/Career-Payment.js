@@ -141,35 +141,72 @@ proceedToPaymentButton.addEventListener("click", function (event) {
   }
 });
 
-function initiateRazorpayPayment() {
-  // Replace with your actual Razorpay key
-  const razorpayKey = window.ENV.RAZORPAY_KEY;
 
-  // Create a new Razorpay instance
-  const rzp = new Razorpay({
-    key: razorpayKey,
-    amount: 1000, // Amount in paise (e.g., 100 rupees = 10000 paise)
-    currency: "INR",
-    name: "KETAN",
-    description: "Child Astrology",
-    // image: "path/to/your/logo.png", // Optional
-    handler: function (response) {
-      // This function will be called when payment is successful
-      console.log(
-        "Payment successful. Payment ID: " + response.razorpay_payment_id
-      );
-      // You can add code here to update your server or show a success message
-    },
-    prefill: {
-      name: "kee",
-      email: "ketan22@kk.ll",
-      contact: "999888800",
-    },
-    theme: {
-      color: "#F37254",
-    },
-  });
+async function initiateRazorpayPayment() {
+  try {
+    // Fetch the key from our serverless function
+    const response = await fetch('/.netlify/functions/get-razorpay-key');
+    const data = await response.json();
+    const razorpayKey = data.key;
+    
+    const options = {
+      key: razorpayKey,
+      amount: 169900,
+      currency: "INR",
+      name: "Your Company Name",
+      description: "Purchase Description",
+      handler: function(response) {
+        alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+      },
+      prefill: {
+        name: "Customer Name",
+        email: "customer@example.com",
+        contact: "9999999999"
+      },
+      theme: {
+        color: "#F37254"
+      }
+    };
 
-  // Open the Razorpay payment dialog
-  rzp.open();
+    const rzp = new Razorpay(options);
+    rzp.open();
+  } catch (error) {
+    console.error("Error fetching Razorpay key:", error);
+  }
 }
+
+
+
+
+// function initiateRazorpayPayment() {
+//   // Replace with your actual Razorpay key
+//   const razorpayKey = window.ENV.RAZORPAY_KEY;
+
+//   // Create a new Razorpay instance
+//   const rzp = new Razorpay({
+//     key: razorpayKey,
+//     amount: 1000, // Amount in paise (e.g., 100 rupees = 10000 paise)
+//     currency: "INR",
+//     name: "KETAN",
+//     description: "Child Astrology",
+//     // image: "path/to/your/logo.png", // Optional
+//     handler: function (response) {
+//       // This function will be called when payment is successful
+//       console.log(
+//         "Payment successful. Payment ID: " + response.razorpay_payment_id
+//       );
+//       // You can add code here to update your server or show a success message
+//     },
+//     prefill: {
+//       name: "kee",
+//       email: "ketan22@kk.ll",
+//       contact: "999888800",
+//     },
+//     theme: {
+//       color: "#F37254",
+//     },
+//   });
+
+//   // Open the Razorpay payment dialog
+//   rzp.open();
+// }
