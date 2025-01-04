@@ -144,7 +144,13 @@ proceedToPaymentButton.addEventListener("click", function (event) {
 async function initiateRazorpayPayment() {
   // Fetch the Razorpay key dynamically from Netlify
   const response = await fetch("/.netlify/functions/get-razorpay-key");
+  const data = await response.json();
+  const razorpayKey = data.RAZORPAY_KEY;
 
+  if (!razorpayKey) {
+    console.error("Failed to fetch Razorpay key");
+    return;
+  }
   // Create a new Razorpay instance
   const rzp = new Razorpay({
     key: razorpayKey,
