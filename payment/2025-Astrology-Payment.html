@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://checkout.razorpay.com/v2/checkout.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asli Astro</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo-black.png" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@200,201,300,301,400,401,500,501,600,601,700,701,1,2&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="./2025-Astrology-Payment.js" defer></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeqHptX2h2cJQadBRfjVfTui9u__uJ9oc&libraries=places"></script>
+
+    <style>
+      body {
+        background-color: #fffaf5;
+        font-family: "General Sans", sans-serif;
+      }
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .accordion-content.active {
+        max-height: 1000px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        transition: max-height 0.5s ease-in, padding 0.3s ease-in;
+      }
+      .form-group {
+        background-color: rgba(255, 255, 255, 0.02);
+      }
+      .input-field {
+        border: 1px solid #d1d5db;
+        background-color: rgba(255, 255, 255, 0.1);
+        height: 3rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      .input-field:focus {
+        outline: none;
+        border-color: #f97316;
+        box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+      }
+      .country-code {
+        background-color: #e5e7eb;
+        color: #4b5563;
+        border: 1px solid #d1d5db;
+        border-right: none;
+        border-top-left-radius: 0.375rem;
+        border-bottom-left-radius: 0.375rem;
+      }
+      .phone-input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .error-message {
+        color: #ef4444;
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
+      }
+      .error-input {
+        border-color: #ef4444;
+      }
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        .grid-cols-2 {
+          grid-template-columns: 1fr;
+        }
+        h2.text-2xl {
+          font-size: 1.5rem;
+        }
+        .accordion-header {
+          padding: 0.75rem;
+        }
+        .input-field {
+          height: 2.25rem;
+        }
+        .p-4 {
+          padding: 1rem;
+        }
+        .mb-4 {
+          margin-bottom: 0.75rem;
+        }
+        #proceedToPaymentButton,
+        #proceedToPaymentButtonMobile {
+          width: 100%;
+          padding: 0.75rem 1rem;
+          margin-top: 1rem;
+          font-size: 1rem;
+        }
+        .form-group {
+          padding: 0.75rem;
+        }
+        label {
+          font-size: 0.875rem;
+        }
+        .accordion {
+          margin-bottom: 0.5rem;
+        }
+        .text-2xl.font-bold.text-orange-600 {
+          font-size: 1.25rem;
+        }
+        .mb-6 {
+          margin-bottom: 1rem;
+        }
+
+        /* Make back button more touch-friendly on mobile */
+        [href="../index.html"] {
+          padding: 0.75rem 1rem;
+          width: fit-content;
+        }
+
+        /* Ensure proper order on mobile */
+        .order-last {
+          order: 999; /* This ensures it stays at the bottom on mobile */
+        }
+
+        /* Remove duplicate button styles */
+        #proceedToPaymentButtonMobile {
+          display: none;
+        }
+      }
+      @media (max-width: 360px) {
+        body {
+          padding: 0.5rem;
+        }
+        .input-field {
+          font-size: 0.875rem;
+        }
+        h2.text-2xl {
+          font-size: 1.25rem;
+        }
+      }
+      @media (max-height: 500px) and (orientation: landscape) {
+        .container {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+        .grid {
+          gap: 1rem;
+        }
+      }
+      /* Optional: Add a subtle pulse animation on hover */
+      @keyframes subtle-pulse {
+        0% {
+          transform: scale(1) translateX(0);
+        }
+        50% {
+          transform: scale(1.02) translateX(-2px);
+        }
+        100% {
+          transform: scale(1) translateX(0);
+        }
+      }
+
+      [href="../index.html"]:hover {
+        animation: subtle-pulse 1s infinite;
+      }
+
+      /* Update accordion styles */
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .accordion-content.active {
+        max-height: 1000px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        transition: max-height 0.5s ease-in, padding 0.3s ease-in;
+      }
+
+      /* Hover effect for accordion items */
+      .accordion-header:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Active state for accordion header */
+      .accordion-header.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      @media (max-width: 640px) {
+        .accordion-content .space-y-2 {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+
+        .accordion-content .text-sm {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        }
+      }
+
+      /* Enhanced Accordion Styles */
+      .accordion {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .accordion:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .accordion-header.active {
+        background-color: rgba(255, 237, 213, 0.1);
+      }
+
+      .accordion-header.active .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .accordion-content.active {
+        max-height: 1000px;
+      }
+
+      @media (max-width: 640px) {
+        .accordion-header {
+          padding: 1rem;
+        }
+
+        .accordion-content .space-y-3 > div {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Add these styles to your existing CSS */
+      .input-field {
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
+      }
+
+      .form-group {
+        background-color: rgba(255, 255, 255, 0.02);
+      }
+
+      /* Update mobile styles */
+      @media (max-width: 640px) {
+        .form-group {
+          padding: 0.75rem;
+        }
+
+        .space-y-3 > * + * {
+          margin-top: 0.75rem;
+        }
+
+        .input-field {
+          height: 2.25rem;
+        }
+
+        .mt-3 {
+          margin-top: 0.75rem;
+        }
+      }
+
+      /* Optional: Add smooth transitions */
+      .input-field {
+        transition: all 0.2s ease-in-out;
+      }
+
+      .input-field:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .flex.items-center {
+        display: flex;
+        align-items: center;
+      }
+
+      .group:hover .transform {
+        transform: translateX(-1px);
+      }
+    </style>
+  </head>
+  <body class="text-gray-800 p-4">
+    <div
+      class="max-w-4xl mx-auto bg-white bg-opacity-10 rounded-lg shadow-lg p-4 sm:p-6"
+    >
+      <div class="flex items-center mb-4 sm:mb-6">
+        <a
+          href="../index.html"
+          class="group inline-flex text-orange-500 items-center mr-2"
+        >
+          <svg
+            class="w-8 h-8 transform transition-transform group-hover:-translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+        </a>
+        <h2 class="text-2xl sm:text-3xl font-bold text-orange-500">
+          Child's Birth Details
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Left column (form) -->
+        <div class="lg:order-1">
+          <form id="childBirthForm">
+            <div class="space-y-3">
+              <div class="form-group p-3 rounded">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label
+                      class="block text-sm font-medium mb-1"
+                      for="firstName"
+                    >
+                      First name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      class="input-field w-full rounded-md text-gray-800 h-9"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium mb-1"
+                      for="lastName"
+                    >
+                      Last name <span class="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      class="input-field w-full rounded-md text-gray-800 h-9"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="dateOfBirth"
+                  >
+                    Date of birth <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="date"
+                    id="dateOfBirth"
+                    name="dateOfBirth"
+                    class="input-field w-full rounded-md text-gray-800 h-9"
+                    required
+                  />
+                </div>
+                <div class="mt-3">
+                  <label class="block text-sm font-medium mb-1" for="gender">
+                    Gender <span class="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="gender"
+                    name="gender"
+                    class="input-field w-full rounded-md text-gray-800"
+                    required
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="timeOfBirth"
+                  >
+                    Time of birth
+                    <span class="text-sm text-gray-500 ml-1"
+                      >(not mandatory)</span
+                    >
+                  </label>
+                  <input
+                    type="time"
+                    id="timeOfBirth"
+                    name="timeOfBirth"
+                    class="input-field w-full rounded-md text-gray-800"
+                  />
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="place-of-birth"
+                  >
+                    Place of birth (city) <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="place-of-birth"
+                    name="placeOfBirth"
+                    class="input-field w-full rounded-md text-gray-800"
+                    placeholder="Start typing to search for a city"
+                    required
+                  />
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="phoneNumber"
+                  >
+                    Number <span class="text-red-500">*</span>
+                  </label>
+                  <div class="flex">
+                    <div
+                      class="country-code flex items-center justify-center px-3 text-sm font-medium"
+                    >
+                      +91
+                    </div>
+                    <input
+                      type="tel"
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      class="input-field phone-input w-full rounded-md rounded-l-none text-gray-800"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="whatsappNumber"
+                  >
+                    WhatsApp number <span class="text-red-500">*</span>
+                  </label>
+                  <div class="flex">
+                    <div
+                      class="country-code flex items-center justify-center px-3 text-sm font-medium"
+                    >
+                      +91
+                    </div>
+                    <input
+                      type="tel"
+                      id="whatsappNumber"
+                      name="whatsappNumber"
+                      class="input-field phone-input w-full rounded-md rounded-l-none text-gray-800"
+                      required
+                    />
+                  </div>
+                  <div class="mt-2">
+                    <input
+                      type="checkbox"
+                      id="same-number"
+                      class="rounded border-gray-300 text-orange-600 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50"
+                    />
+                    <label for="same-number" class="ml-2 text-sm"
+                      >Same as phone number</label
+                    >
+                  </div>
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="maritalStatus"
+                  >
+                    Current marital status
+                    <span class="text-sm text-gray-500 ml-1"
+                      >(not mandatory)</span
+                    >
+                  </label>
+                  <select
+                    id="maritalStatus"
+                    name="maritalStatus"
+                    class="input-field w-full rounded-md text-gray-800"
+                  >
+                    <option value="">Select Status</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                  </select>
+                </div>
+                <div class="mt-3">
+                  <label class="block text-sm font-medium mb-1" for="hasKids">
+                    Do you have kids
+                    <span class="text-sm text-gray-500 ml-1"
+                      >(not mandatory)</span
+                    >
+                  </label>
+                  <select
+                    id="hasKids"
+                    name="hasKids"
+                    class="input-field w-full rounded-md text-gray-800"
+                  >
+                    <option value="">Select Option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group p-3 rounded">
+                <h3 class="text-xl font-semibold mb-3 text-gray-600">
+                  Kundali
+                </h3>
+                <div>
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="additionalQuestions"
+                  >
+                    Mention any additional questions
+                  </label>
+                  <textarea
+                    id="additionalQuestions"
+                    name="additionalQuestions"
+                    class="input-field w-full rounded-md text-gray-800 h-40"
+                  ></textarea>
+                </div>
+                <div class="mt-3">
+                  <label
+                    class="block text-sm font-medium mb-1"
+                    for="referralSource"
+                  >
+                    How did you find about us?
+                    <span class="text-sm text-gray-500 ml-1"
+                      >(not mandatory)</span
+                    >
+                  </label>
+                  <select
+                    id="referralSource"
+                    name="referralSource"
+                    class="input-field w-full rounded-md text-gray-800"
+                  >
+                    <option value="">Select Option</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="friend_referral">Friend Referral</option>
+                    <option value="search_engine">Search Engine</option>
+                    <option value="advertisement">Advertisement</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right column (pricing) -->
+        <div class="lg:order-2 order-last">
+          <h3 class="text-xl font-bold mb-2 text-orange-500">
+            Order Your Child's First Astro Report
+          </h3>
+          <p class="text-2xl sm:text-3xl font-bold text-orange-600 mb-4">
+            ₹1,699 <span class="text-sm text-gray-600">for full report</span>
+          </p>
+
+          <!-- Accordions -->
+          <div class="space-y-2">
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+              <div
+                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
+              >
+                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
+                  >
+                    <i class="fas fa-chart-pie text-orange-600"></i>
+                  </div>
+                  <span class="font-medium text-gray-800"
+                    >Kundli and Divisional Birth Charts</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                  <span class="text-lg font-semibold text-orange-600"
+                    >₹399</span
+                  >
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <i
+                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-content bg-orange-50/5">
+                <div class="p-4 space-y-3 border-t border-orange-100/10">
+                  <!-- Chart Items -->
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800">Lagna Chart</span>
+                      <p class="text-sm text-gray-600">
+                        Birth Ascendant Analysis
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800">Moon Chart</span>
+                      <p class="text-sm text-gray-600">
+                        Emotional & Mental Analysis
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Navamsha Chart</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Destiny & Marriage Analysis
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Chalit Chart</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Current Life Phase Analysis
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+              <div
+                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
+              >
+                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
+                  >
+                    <i class="fas fa-star text-orange-600"></i>
+                  </div>
+                  <span class="font-medium text-gray-800"
+                    >Horoscope Analysis</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                  <span class="text-lg font-semibold text-orange-600"
+                    >₹1,399</span
+                  >
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <i
+                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-content bg-orange-50/5">
+                <div class="p-4 space-y-3 border-t border-orange-100/10">
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Planetary Positions</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Detailed analysis of celestial influences
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Life Predictions</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Future path and potential outcomes
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+              <div
+                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
+              >
+                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
+                  >
+                    <i class="fas fa-om text-orange-600"></i>
+                  </div>
+                  <span class="font-medium text-gray-800"
+                    >Sacred Auspicious Sounds for Naamkaran</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                  <span class="text-lg font-semibold text-orange-600"
+                    >₹700</span
+                  >
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <i
+                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-content bg-orange-50/5">
+                <div class="p-4 space-y-3 border-t border-orange-100/10">
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Name Selection</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Astrologically aligned naming guidance
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Sacred Sounds</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Vedic phonetic recommendations
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+              <div
+                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
+              >
+                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                  <div
+                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
+                  >
+                    <i class="fas fa-user text-orange-600"></i>
+                  </div>
+                  <span class="font-medium text-gray-800"
+                    >Personality and Unique Qualities</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                  <span class="text-lg font-semibold text-orange-600"
+                    >₹2,100</span
+                  >
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <i
+                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-content bg-orange-50/5">
+                <div class="p-4 space-y-3 border-t border-orange-100/10">
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Character Analysis</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Detailed personality insights
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
+                  >
+                    <div class="flex-shrink-0">
+                      <svg
+                        class="w-6 h-6 text-orange-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span class="font-medium text-gray-800"
+                        >Talent Identification</span
+                      >
+                      <p class="text-sm text-gray-600">
+                        Natural abilities and potential
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <p class="flex justify-between">
+              <span>Including taxes</span><span>₹7,100</span>
+            </p>
+            <p class="flex justify-between">
+              <span>Instant Discount</span><span>-₹5,401</span>
+            </p>
+            <p class="flex justify-between font-bold">
+              <span>Total Due Today</span><span>₹1,699</span>
+            </p>
+          </div>
+          <button
+            type="submit"
+            id="proceedToPaymentButton"
+            class="w-full bg-orange-600 text-white font-bold py-3 px-4 rounded mt-6 hover:bg-orange-700 transition duration-300"
+          >
+            PROCEED TO PAYMENT
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
