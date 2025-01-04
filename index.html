@@ -46,21 +46,7 @@
         right: -7px;
       }
     </style>
-    <script defer>
-        function showReviews() {
-            // Hide all blocks
-            document.getElementById("block_desc").classList.add("hidden");
-            document.getElementById("block_reviews").classList.add("hidden");
-            document.getElementById("block_faq").classList.add("hidden");
 
-            // Show the reviews block
-            const reviewsBlock = document.getElementById("block_reviews");
-            reviewsBlock.classList.remove("hidden");
-
-            // Scroll to the reviews block
-            reviewsBlock.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-    </script>
   </head>
   <body class="bg-white1">
     <section
@@ -136,12 +122,11 @@
             class="w-full my-4 border-b-2 border-white border-opacity-50"
           ></div>
           <nav class="grid grid-cols-1 gap-4 mt-[5rem] px-8">
-            <span
+            <!-- <span
               class="w-full border-b-2 border-white border-opacity-50 text-white flex items-center justify-between"
             >
-              <!-- <a class="w-full text-xl py-2" href="Products.html">Shop</a> -->
               <i class="fa-solid text-2xl fa-arrow-right"></i>
-            </span>
+            </span> -->
             <span
               class="w-full border-b-2 border-white border-opacity-50 text-white flex items-center justify-between"
             >
@@ -910,7 +895,7 @@
             },
           ],
         });
-
+        
         // Reviews data array
         const reviews = [
           {
@@ -1108,6 +1093,23 @@
           );
         });
       });
+       function showReviews() {
+            // Hide all blocks
+            document.getElementById("block_desc").classList.add("hidden");
+            document.getElementById("block_reviews").classList.add("hidden");
+            document.getElementById("block_faq").classList.add("hidden");
+
+            // Show the reviews block
+            const reviewsBlock = document.getElementById("block_reviews");
+            reviewsBlock.classList.remove("hidden");
+
+            // Scroll to the reviews block
+            reviewsBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          $("#tab_reviews").addClass("border-b-2").removeClass("border-b-0");
+          $("#tab_desc").removeClass("border-b-2").addClass("border-b-0");
+          $("#tab_faq").removeClass("border-b-2").addClass("border-b-0");
+      }
     </script>
   </body>
 </html>
