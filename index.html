@@ -45,7 +45,106 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <style></style>
+    <style>
+      /* Testimonials specific styles */
+      .testimonials-slider {
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .testimonials-slider .slide {
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+
+      .testimonials-slider .slick-list {
+        margin: 0 -10px;
+      }
+
+      .testimonials-slider .slick-track {
+        display: flex !important;
+        align-items: center;
+      }
+
+      /* Dots styling for testimonials */
+      .testimonials-slider .slick-dots {
+        display: none; /* Hide by default */
+        justify-content: center;
+        margin: 1rem 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      /* Show dots only on mobile */
+      @media (max-width: 767px) {
+        .testimonials-slider .slick-dots {
+          display: flex;
+          margin: 24px 0 16px 0 !important;
+        }
+        
+        .testimonials-slider .slick-dots li {
+          margin: 0 0.25rem;
+        }
+
+        .testimonials-slider .slick-dots button {
+          display: block;
+          width: 1rem !important;
+          height: 0.5rem !important;
+          padding: 0;
+          border: none;
+          border-radius: 0% !important;
+          background-color: rgba(0, 0, 0, 0.18) !important;
+          text-indent: -9999px;
+        }
+
+        .testimonials-slider .slick-dots li.slick-active button {
+          background-color: #d96200 !important;
+        }
+      }
+
+      /* Navigation arrows */
+      .testimonials-slider .slick-prev,
+      .testimonials-slider .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        color: white;
+        border: none;
+      }
+
+      .testimonials-slider .slick-prev {
+        left: -25px;
+      }
+
+      .testimonials-slider .slick-next {
+        right: -25px;
+      }
+
+      @media (max-width: 767px) {
+        .testimonials-slider {
+          padding-bottom: 4rem !important;
+        }
+        
+        .testimonials-slider .slick-dots {
+          display: flex;
+          position: relative;
+          bottom: -3rem !important;
+          margin: 0;
+          padding: 0;
+        }
+
+        .testimonials-slider .slide {
+          margin-bottom: 3rem !important;
+        }
+      }
+    </style>
+    
   </head>
   <body class="font-font1 bg-white1 scroll-smooth">
     <section
@@ -155,7 +254,7 @@
             guide
           </h2>
           <p class="text-xl font-medium text-white w-[80%] md:text-lg">
-            Secure your career, relationships, marriage and children’s lives
+            Secure your career, relationships, marriage and children's lives
             with the power of Vedic astrology. Make better decisions for
             yourself and your loved ones with an insightful understanding of
             your future.
@@ -181,7 +280,7 @@
           What you get
         </h2>
         <p class="text-center w-1/2 md:w-[80%] text-2xl mx-auto">
-          Discover unique solutions to your life’s problems, best opportunities
+          Discover unique solutions to your life's problems, best opportunities
           for success, karmic patterns from your past lives and more with our
           help. Our Vedic astrologer will study your Kundali to analyse the
           ruling planetary positions and the Nakshatras to help you manifest
@@ -394,6 +493,9 @@
             </div>
           </div>
         </div>
+        
+        <!-- Dots Container -->
+        <ul class="card-dots"></ul>
       </div>
   </section>
     
@@ -502,97 +604,6 @@
     
     
     
-    <!-- 
- <section
-      style="background-image: url('./images/kundali-bg.png')"
-      class="kundali w-screen max-w-full h-screen pt-[5rem] md:h-[max-content] md:pb-8 bg-cover"
-    >
-      <div class="w-[65%] md:w-[90%] mx-auto">
-        <h3
-          class="text-5xl text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-orange-200"
-        >
-          Explore your personalized kundali alignment for a cosmic connection
-          with your partner.
-        </h3>
-        <p class="text-center my-4 text-white w-[80%] mx-auto">
-          Get clarity and assurance in your choices with our free Kunadli
-          matching service. Gain a understanding of your future and approach it
-          with peace of mind.
-        </p>
-        <img
-          src="./images/kundali-graphic.png"
-          class="bg-none mx-auto w-[300px] h-[300px] object-contain"
-          alt=""
-        />
-        <button
-          class="mx-auto flex items-center justify-center mt-8 shadow-btnShadow1 gap-2 bg-[#461304] text-white px-8 py-3 rounded-2xl"
-        >
-          Start your journey today <img src="./images/right-arrow.svg" alt="" />
-        </button>
-      </div>
-    </section>
-    
-    <section
-      style="background-image: url('./images/bundle-asset.png')"
-      class="bundle md:!bg-bundle-asset-sm w-screen max-w-full h-screen md:h-max pt-[5rem] md:pt-[1rem] md:pb-[8rem] md:mt-20 md:mb-8 bg-top md:bg-bottom-5 bg-contain bg-no-repeat"
-    >
-      <div class="w-[40%] md:w-[90%] md:mx-auto ml-[8rem]">
-        <h2
-          class="text-xl flex gap-4 items-center justify-start md:justify-center my-4 font-medium text-orange-600"
-        >
-          <img src="./images/star-sign.svg" alt="" />
-          Limited Offer
-        </h2>
-        <h3 class="block text-4xl my-2 font-semibold md:text-center md:hidden">
-          Unlock our Saving Bundle.
-        </h3>
-        <h3 class="block text-4xl my-2 font-semibold text-red1 md:hidden">
-          Save ₹7,100
-        </h3>
-        <h3 class="hidden text-center text-4xl my-2 font-semibold md:block">
-          Unlock our Savings Bundle. <span class="text-red1">Save ₹7,100</span>
-        </h3>
-        <p class="my-4 text-2xl md:text-center">
-          First ever all-inclusive Astro Report to get a head. start in
-          connecting with yourself like never before. Not just a one-time read,
-          but a guide you can refer to at different stages of life.
-        </p>
-        <button
-          class="mr-auto md:mx-auto md:mt-[7rem] flex items-center justify-center mt-8 shadow-btnShadow2 gap-2 bg-orange-600 text-white px-8 py-3 rounded-2xl"
-        >
-          Preview The Bundle Now <img src="./images/right-arrow.svg" alt="" />
-        </button>
-        <p class="block md:hidden text-2xl mt-4">Includes:</p>
-        <div class="grid md:hidden gap-4 grid-cols-2">
-          <p class="flex text-orange-600 items-center justify-start gap-3">
-            <img src="./images/om.png" alt="" />
-            Kundali and Divisional Birth Charts
-          </p>
-          <p class="flex text-orange-600 items-center justify-start gap-3">
-            <img src="./images/om.png" alt="" />
-            Health and Wellness
-          </p>
-          <p class="flex text-orange-600 items-center justify-start gap-3">
-            <img src="./images/om.png" alt="" />
-            Horoscope Analysis
-          </p>
-          <p class="flex text-orange-600 items-center justify-start gap-3">
-            <img src="./images/om.png" alt="" />
-            Professional Interest
-          </p>
-          <p class="flex text-orange-600 items-center justify-start gap-3">
-            <img src="./images/om.png" alt="" />
-            Your Personality and Unique Qualities
-          </p>
-          <p class="flex text-orange-600 items-center justify-start gap-3">
-            <img src="./images/om.png" alt="" />
-            Lucky Colors and Gemstones
-          </p>
-        </div>
-      </div>
-    </section>  -->
-    
-
     <section id="testimonials" class="testimonials w-screen max-w-full h-screen md:h-[max-content] pt-[4rem] md:pt-2 md:pb-12">
       <div class="container mx-auto">
         <h2
@@ -609,34 +620,34 @@
         </p>
         <div id="testimonials" class="grid md:hidden vignette-container grid-cols-5 gap-4">
           <a href="#testimonials">
-            <img src="images/whastsapp1.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whastsapp1.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/whatsapp2.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whatsapp2.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/whatsapp3.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whatsapp3.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/whatsapp4.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whatsapp4.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/whatsapp5.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whatsapp5.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/whatsapp6.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whatsapp6.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/whatsapp7.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/whatsapp7.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/review1.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/review1.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/review2.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/review2.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
           <a href="#testimonials">
-            <img src="images/review3.png" class="w-[290px] h-[220px]" alt="" />
+            <img src="images/review3.png" class="w-[290px] h-[220px] object-cover" alt="" />
           </a>
         </div>
         
@@ -664,22 +675,37 @@
          <div class="testimonials-slider !hidden md:!block">
           <div class="slide">
             <a href="#testimonials">
-              <img src="images/review1.png" class="w-full h-[220px] object-cover mx-auto" alt="" />
+              <img src="images/whastsapp1.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
             </a>
           </div>
           <div class="slide">
             <a href="#testimonials">
-              <img src="images/review2.png" class="w-full h-[220px] object-cover mx-auto" alt="" />
+              <img src="images/whatsapp2.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
             </a>
           </div>
           <div class="slide">
             <a href="#testimonials">
-              <img src="images/review3.png" class="w-full h-[220px] object-cover mx-auto" alt="" />
+              <img src="images/whatsapp3.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
             </a>
           </div>
           <div class="slide">
             <a href="#testimonials">
-              <img src="images/review4.png" class="w-full h-[220px] object-cover mx-auto" alt="" />
+              <img src="images/whatsapp4.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
+            </a>
+          </div>
+          <div class="slide">
+            <a href="#testimonials">
+              <img src="images/whatsapp5.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
+            </a>
+          </div>
+          <div class="slide">
+            <a href="#testimonials">
+              <img src="images/whatsapp6.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
+            </a>
+          </div>
+          <div class="slide">
+            <a href="#testimonials">
+              <img src="images/whatsapp7.png" class="w-full h-[400px] object-cover mx-auto" alt="" />
             </a>
           </div>
         </div>
@@ -693,7 +719,7 @@
         <img src="./images/ganesh.png" class="block md:hidden" alt="" />
         <div class="details">
           <p class="text-3xl text-center">
-            Get insights on love, career, and life’s challenges from astrologers
+            Get insights on love, career, and life's challenges from astrologers
             in just <span class="text-orange-600">24 hours</span>.
           </p>
           <button
@@ -829,29 +855,38 @@
     </style> -->
        <style>
       .slick-dots {
-        display: flex;
+        display: none; /* Hide by default */
         justify-content: center;
-        margin: -2rem 0 !important;
-        padding: 1rem 0;
+        margin-top: 1rem;
+        padding: 0;
         list-style-type: none;
       }
       .slick-dots li {
+        display: inline-block;
         margin: 0 0.25rem;
       }
       .slick-dots button {
         display: block;
-        width: 1rem !important;
-        height: 0.5rem !important;
+        width: 1rem;
+        height: 0.5rem;
         padding: 0;
         border: none;
-        border-radius: 0% !important;
-        background-color: rgba(0, 0, 0, 0.18) !important;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.18);
         text-indent: -9999px;
       }
       .slick-dots li.slick-active button {
-        background-color: #d96200 !important;
+        background-color: #d96200;
       }
 
+      /* Show dots only on mobile */
+      @media (max-width: 767px) {
+        .slick-dots {
+          display: flex;
+        }
+      }
+    </style>
+    <style>
       .slick-track {
         background: none !important;
       }
@@ -911,9 +946,9 @@
       }
     </style>
     <style>
-      /* Base styles for navigation arrows - hidden by default for desktop */
-      .nav-arrow {
-        display: none; /* Hide by default on desktop */
+      /* Services Cards specific styles */
+      .services-cards .nav-arrow {
+        display: none;
         opacity: 0.7;
         transition: opacity 0.3s ease;
         position: absolute;
@@ -930,14 +965,14 @@
         border: none;
       }
 
-      .nav-arrow i {
+      .services-cards .nav-arrow i {
         font-size: 16px;
         color: #ea580c;
       }
 
       /* Show arrows only on mobile */
       @media (max-width: 767px) {
-        .card-slider {
+        .services-cards .card-slider {
           display: flex !important;
           scroll-snap-type: x mandatory;
           overflow-x: hidden;
@@ -947,14 +982,14 @@
           padding: 0 !important;
         }
 
-        .card-slider > div {
+        .services-cards .card-slider > div {
           flex: 0 0 100% !important;
           width: 100% !important;
           scroll-snap-align: start;
           padding: 0 16px;
         }
 
-        .nav-arrow {
+        .services-cards .nav-arrow {
           display: flex !important;
           width: 32px;
           height: 32px;
@@ -962,12 +997,46 @@
           z-index: 30;
         }
 
-        .prev-arrow {
+        .services-cards .prev-arrow {
           left: 10px !important;
         }
 
-        .next-arrow {
+        .services-cards .next-arrow {
           right: 10px !important;
+        }
+      }
+
+      .services-cards .card-dots {
+        display: none;
+        justify-content: center;
+        margin: 1rem 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      /* Show dots only on mobile */
+      @media (max-width: 767px) {
+        .services-cards .card-dots {
+          display: flex;
+        }
+        
+        .services-cards .card-dots li {
+          margin: 0 0.25rem;
+        }
+
+        .services-cards .card-dots button {
+          display: block;
+          width: 1rem !important;
+          height: 0.5rem !important;
+          padding: 0;
+          border: none;
+          border-radius: 0% !important;
+          background-color: rgba(0, 0, 0, 0.18) !important;
+          text-indent: -9999px;
+        }
+
+        .services-cards .card-dots li.slick-active button {
+          background-color: #d96200 !important;
         }
       }
     </style>
@@ -977,14 +1046,29 @@
         const cards = Array.from(slider.children);
         const prevArrow = document.querySelector('.prev-arrow');
         const nextArrow = document.querySelector('.next-arrow');
+        const dotsContainer = document.querySelector('.card-dots');
         let currentIndex = 0;
 
+        // Create dots
+        cards.forEach((_, index) => {
+          const dot = document.createElement('li');
+          const button = document.createElement('button');
+          dot.appendChild(button);
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsContainer.children);
+
+        function updateDots(index) {
+          dots.forEach(dot => dot.classList.remove('slick-active'));
+          dots[index].classList.add('slick-active');
+        }
+
         function moveToCard(index) {
-          // Handle circular navigation
           if (index < 0) {
-            index = cards.length - 1; // Go to last card if moving left from first card
+            index = cards.length - 1;
           } else if (index >= cards.length) {
-            index = 0; // Go to first card if moving right from last card
+            index = 0;
           }
           
           currentIndex = index;
@@ -993,6 +1077,7 @@
             left: cardWidth * index,
             behavior: 'smooth'
           });
+          updateDots(index);
         }
 
         function handleNext() {
@@ -1003,9 +1088,13 @@
           moveToCard(currentIndex - 1);
         }
 
-        // Add event listeners
         nextArrow.addEventListener('click', handleNext);
         prevArrow.addEventListener('click', handlePrev);
+
+        // Add click handlers for dots
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => moveToCard(index));
+        });
 
         // Touch events for swipe
         let startX;
@@ -1025,6 +1114,9 @@
             }
           }
         });
+
+        // Initialize dots
+        updateDots(currentIndex);
       });
     </script>
   </body>
