@@ -283,6 +283,15 @@
         transform: translateY(-1px);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
+
+      .flex.items-center {
+        display: flex;
+        align-items: center;
+      }
+
+      .group:hover .transform {
+        transform: translateX(-1px);
+      }
     </style>
 
 
@@ -293,30 +302,24 @@
     <div
       class="max-w-4xl mx-auto bg-white bg-opacity-10 rounded-lg shadow-lg p-4 sm:p-6"
     >
-      <!-- Back Button with improved styling -->
-      <div class="mb-6">
-        <a href="../index.html" 
-           class="group inline-flex items-center px-4 py-2 rounded-lg 
-                  bg-white/10 hover:bg-orange-50 
-                  text-orange-600 hover:text-orange-700
-                  shadow-sm hover:shadow-md
-                  transform transition-all duration-200 hover:-translate-x-1">
-            <svg class="w-5 h-5 mr-2 transform transition-transform group-hover:-translate-x-1" 
-                 fill="none" 
-                 stroke="currentColor" 
-                 viewBox="0 0 24 24">
-                <path stroke-linecap="round" 
-                      stroke-linejoin="round" 
-                      stroke-width="2" 
-                      d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-            </svg>
-            <span class="font-medium">Back to Home</span>
-        </a>
-      </div>
+      
 
-      <h2 class="text-2xl sm:text-3xl font-bold text-orange-500 mb-4 sm:mb-6">
-        Child's Birth Details
-      </h2>
+      <div class="flex items-center mb-4 sm:mb-6">
+        <a href="../index.html" class="group inline-flex items-center mr-2">
+          <svg class="w-5 h-5 transform transition-transform group-hover:-translate-x-1" 
+               fill="none" 
+               stroke="currentColor" 
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+        </a>
+        <h2 class="text-2xl sm:text-3xl font-bold text-orange-500">
+          Child's Birth Details
+        </h2>
+      </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <!-- Left column (form) -->
