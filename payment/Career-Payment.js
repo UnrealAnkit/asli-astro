@@ -143,7 +143,8 @@ proceedToPaymentButton.addEventListener("click", function (event) {
 
 function initiateRazorpayPayment() {
   // Replace with your actual Razorpay key
-  const razorpayKey = window.ENV.RAZORPAY_KEY;
+const razorpayKey = RAZORPAY_KEY;  // Netlify will replace this with the actual value
+  
 
   // Create a new Razorpay instance
   const rzp = new Razorpay({

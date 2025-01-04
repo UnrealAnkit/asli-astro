@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://checkout.razorpay.com/v2/checkout.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asli Astro</title>
@@ -19,6 +20,7 @@
     <script src="./Career-Payment.js" defer></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeqHptX2h2cJQadBRfjVfTui9u__uJ9oc&libraries=places"></script>
+    
     <style>
       body {
         background-color: #fffaf5;
@@ -27,14 +29,18 @@
       .accordion-content {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        padding-top: 0;
+        padding-bottom: 0;
       }
       .accordion-content.active {
         max-height: 1000px;
-        transition: max-height 0.5s ease-in;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        transition: max-height 0.5s ease-in, padding 0.3s ease-in;
       }
       .form-group {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(255, 255, 255, 0.02);
       }
       .input-field {
         border: 1px solid #d1d5db;
@@ -70,181 +76,258 @@
         border-color: #ef4444;
       }
       @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
         .grid-cols-2 {
           grid-template-columns: 1fr;
         }
+        h2.text-2xl {
+          font-size: 1.5rem;
+        }
+        .accordion-header {
+          padding: 0.75rem;
+        }
+        .input-field {
+          height: 2.25rem;
+        }
+        .p-4 {
+          padding: 1rem;
+        }
+        .mb-4 {
+          margin-bottom: 0.75rem;
+        }
+        #proceedToPaymentButton,
+        #proceedToPaymentButtonMobile {
+          width: 100%;
+          padding: 0.75rem 1rem;
+          margin-top: 1rem;
+          font-size: 1rem;
+        }
+        .form-group {
+          padding: 0.75rem;
+        }
+        label {
+          font-size: 0.875rem;
+        }
+        .accordion {
+          margin-bottom: 0.5rem;
+        }
+        .text-2xl.font-bold.text-orange-600 {
+          font-size: 1.25rem;
+        }
+        .mb-6 {
+          margin-bottom: 1rem;
+        }
+        
+        /* Make back button more touch-friendly on mobile */
+        [href="../index.html"] {
+          padding: 0.75rem 1rem;
+          width: fit-content;
+        }
+        
+        /* Ensure proper order on mobile */
+        .order-last {
+          order: 999; /* This ensures it stays at the bottom on mobile */
+        }
+        
+        /* Remove duplicate button styles */
+        #proceedToPaymentButtonMobile {
+          display: none;
+        }
+      }
+      @media (max-width: 360px) {
+        body {
+          padding: 0.5rem;
+        }
+        .input-field {
+          font-size: 0.875rem;
+        }
+        h2.text-2xl {
+          font-size: 1.25rem;
+        }
+      }
+      @media (max-height: 500px) and (orientation: landscape) {
+        .container {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+        .grid {
+          gap: 1rem;
+        }
+      }
+      /* Optional: Add a subtle pulse animation on hover */
+      @keyframes subtle-pulse {
+        0% { transform: scale(1) translateX(0); }
+        50% { transform: scale(1.02) translateX(-2px); }
+        100% { transform: scale(1) translateX(0); }
+      }
+
+      [href="../index.html"]:hover {
+        animation: subtle-pulse 1s infinite;
+      }
+
+      /* Update accordion styles */
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .accordion-content.active {
+        max-height: 1000px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        transition: max-height 0.5s ease-in, padding 0.3s ease-in;
+      }
+
+      /* Hover effect for accordion items */
+      .accordion-header:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Active state for accordion header */
+      .accordion-header.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      @media (max-width: 640px) {
+        .accordion-content .space-y-2 {
+          padding-left: 0.5rem;
+          padding-right: 0.5rem;
+        }
+        
+        .accordion-content .text-sm {
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+        }
+      }
+
+      /* Enhanced Accordion Styles */
+      .accordion {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .accordion:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .accordion-header.active {
+        background-color: rgba(255, 237, 213, 0.1);
+      }
+
+      .accordion-header.active .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .accordion-content.active {
+        max-height: 1000px;
+      }
+
+      @media (max-width: 640px) {
+        .accordion-header {
+          padding: 1rem;
+        }
+        
+        .accordion-content .space-y-3 > div {
+          padding: 0.75rem;
+        }
+      }
+
+      /* Add these styles to your existing CSS */
+      .input-field {
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
+      }
+
+      .form-group {
+        background-color: rgba(255, 255, 255, 0.02);
+      }
+
+      /* Update mobile styles */
+      @media (max-width: 640px) {
+        .form-group {
+          padding: 0.75rem;
+        }
+
+        .space-y-3 > * + * {
+          margin-top: 0.75rem;
+        }
+
+        .input-field {
+          height: 2.25rem;
+        }
+
+        .mt-3 {
+          margin-top: 0.75rem;
+        }
+      }
+
+      /* Optional: Add smooth transitions */
+      .input-field {
+        transition: all 0.2s ease-in-out;
+      }
+
+      .input-field:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .flex.items-center {
+        display: flex;
+        align-items: center;
+      }
+
+      .group:hover .transform {
+        transform: translateX(-1px);
       }
     </style>
+
+
+
+
   </head>
   <body class="text-gray-800 p-4">
     <div
       class="max-w-4xl mx-auto bg-white bg-opacity-10 rounded-lg shadow-lg p-4 sm:p-6"
     >
-      <h2 class="text-2xl sm:text-3xl font-bold text-orange-500 mb-4 sm:mb-6">
-        Child's Birth Details
-      </h2>
+      
+
+      <div class="flex items-center mb-4 sm:mb-6">
+        <a href="../index.html" class="group inline-flex items-center mr-2">
+          <svg class="w-5 h-5 transform transition-transform group-hover:-translate-x-1" 
+               fill="none" 
+               stroke="currentColor" 
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+        </a>
+        <h2 class="text-2xl sm:text-3xl font-bold text-orange-500">
+          Child's Birth Details
+        </h2>
+      </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Right column (accordions) - Now appears first on small screens -->
-        <div class="lg:order-2">
-          <h3 class="text-xl font-bold mb-2 text-orange-500">
-            Order Your Child's First Astro Report
-          </h3>
-          <p class="text-2xl sm:text-3xl font-bold text-orange-600 mb-4">
-            ₹1,699 <span class="text-sm text-gray-600">for full report</span>
-          </p>
-
-          <!-- Accordions -->
-          <div class="space-y-2">
-            <div class="accordion">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-start p-2 cursor-pointer bg-white bg-opacity-10 rounded"
-              >
-                <span class="flex items-center w-full sm:w-[65%] mb-2 sm:mb-0">
-                  <i
-                    class="fas fa-check-circle text-orange-600 mr-2 flex-shrink-0"
-                  ></i>
-                  <span class="break-words"
-                    >Kundli and Divisional Birth Charts</span
-                  >
-                </span>
-                <span
-                  class="flex items-center w-full sm:w-auto justify-between sm:justify-start"
-                >
-                  <span class="text-gray-600 mr-4">₹399</span>
-                  <i
-                    class="fas fa-chevron-down text-orange-600 transform transition-transform duration-200"
-                  ></i>
-                </span>
-              </div>
-              <div class="accordion-content px-2 bg-white bg-opacity-5">
-                <div class="py-2 text-sm">
-                  <p>✓ Lagna Chart</p>
-                  <p>✓ Moon Chart</p>
-                  <p>✓ Navamsha Chart</p>
-                  <p>✓ Chalit Chart</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-2 cursor-pointer bg-white bg-opacity-10 rounded"
-              >
-                <span class="flex items-center w-full sm:w-[65%] mb-2 sm:mb-0">
-                  <i
-                    class="fas fa-check-circle text-orange-600 mr-2 flex-shrink-0"
-                  ></i>
-                  <span class="break-words">Horoscope Analysis</span>
-                </span>
-                <span
-                  class="flex items-center w-full sm:w-auto justify-between sm:justify-start"
-                >
-                  <span class="text-gray-600 mr-4">₹1,399</span>
-                  <i
-                    class="fas fa-chevron-down text-orange-600 transform transition-transform duration-200"
-                  ></i>
-                </span>
-              </div>
-              <div class="accordion-content px-2 bg-white bg-opacity-5">
-                <div class="py-2 text-sm">
-                  <p>
-                    Detailed analysis of planetary positions and their
-                    influences on your child's life.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-start p-2 cursor-pointer bg-white bg-opacity-10 rounded"
-              >
-                <span class="flex items-center w-full sm:w-[65%] mb-2 sm:mb-0">
-                  <i
-                    class="fas fa-check-circle text-orange-600 mr-2 flex-shrink-0"
-                  ></i>
-                  <span class="break-words"
-                    >Sacred Auspicious Sounds for Naamkaran</span
-                  >
-                </span>
-                <span
-                  class="flex items-center w-full sm:w-auto justify-between sm:justify-start"
-                >
-                  <span class="text-gray-600 mr-4">₹700</span>
-                  <i
-                    class="fas fa-chevron-down text-orange-600 transform transition-transform duration-200"
-                  ></i>
-                </span>
-              </div>
-              <div class="accordion-content px-2 bg-white bg-opacity-5">
-                <div class="py-2 text-sm">
-                  <p>
-                    Discover the perfect sacred sounds for your child's naming
-                    ceremony.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-2 cursor-pointer bg-white bg-opacity-10 rounded"
-              >
-                <span class="flex items-center w-full sm:w-[65%] mb-2 sm:mb-0">
-                  <i
-                    class="fas fa-check-circle text-orange-600 mr-2 flex-shrink-0"
-                  ></i>
-                  <span class="break-words"
-                    >Personality and Unique Qualities</span
-                  >
-                </span>
-                <span
-                  class="flex items-center w-full sm:w-auto justify-between sm:justify-start"
-                >
-                  <span class="text-gray-600 mr-4">₹2,100</span>
-                  <i
-                    class="fas fa-chevron-down text-orange-600 transform transition-transform duration-200"
-                  ></i>
-                </span>
-              </div>
-              <div class="accordion-content px-2 bg-white bg-opacity-5">
-                <div class="py-2 text-sm">
-                  <p>
-                    Gain insights into your child's potential personality traits
-                    and unique qualities.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6">
-            <p class="flex justify-between">
-              <span>Including taxes</span><span>₹7,100</span>
-            </p>
-            <p class="flex justify-between">
-              <span>Instant Discount</span><span>-₹5,401</span>
-            </p>
-            <p class="flex justify-between font-bold">
-              <span>Total Due Today</span><span>₹1,699</span>
-            </p>
-          </div>
-          <button
-            type="submit"
-            id="proceedToPaymentButtonDesktop"
-            class="hidden lg:block w-full bg-orange-600 text-white font-bold py-3 px-4 rounded mt-6 hover:bg-orange-700 transition duration-300"
-          >
-            PROCEED TO PAYMENT
-          </button>
-        </div>
-
         <!-- Left column (form) -->
         <div class="lg:order-1">
           <form id="childBirthForm">
-            <div class="space-y-4">
-              <div class="form-group p-4 rounded">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="space-y-3">
+              <div class="form-group p-3 rounded">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label
                       class="block text-sm font-medium mb-1"
@@ -256,7 +339,7 @@
                       type="text"
                       id="firstName"
                       name="firstName"
-                      class="input-field w-full rounded-md text-gray-800"
+                      class="input-field w-full rounded-md text-gray-800 h-9"
                       required
                     />
                   </div>
@@ -271,12 +354,12 @@
                       type="text"
                       id="lastName"
                       name="lastName"
-                      class="input-field w-full rounded-md text-gray-800"
+                      class="input-field w-full rounded-md text-gray-800 h-9"
                       required
                     />
                   </div>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="dateOfBirth"
@@ -287,11 +370,11 @@
                     type="date"
                     id="dateOfBirth"
                     name="dateOfBirth"
-                    class="input-field w-full rounded-md text-gray-800"
+                    class="input-field w-full rounded-md text-gray-800 h-9"
                     required
                   />
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label class="block text-sm font-medium mb-1" for="gender">
                     Gender <span class="text-red-500">*</span>
                   </label>
@@ -307,7 +390,7 @@
                     <option value="other">Other</option>
                   </select>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="timeOfBirth"
@@ -324,7 +407,7 @@
                     class="input-field w-full rounded-md text-gray-800"
                   />
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="place-of-birth"
@@ -340,7 +423,7 @@
                     required
                   />
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="phoneNumber"
@@ -362,7 +445,7 @@
                     />
                   </div>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="whatsappNumber"
@@ -394,7 +477,7 @@
                     >
                   </div>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="maritalStatus"
@@ -416,7 +499,7 @@
                     <option value="widowed">Widowed</option>
                   </select>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label class="block text-sm font-medium mb-1" for="hasKids">
                     Do you have kids
                     <span class="text-sm text-gray-500 ml-1"
@@ -435,7 +518,7 @@
                 </div>
               </div>
 
-              <div class="form-group p-4 rounded">
+              <div class="form-group p-3 rounded">
                 <h3 class="text-xl font-semibold mb-3 text-gray-600">
                   Kundali
                 </h3>
@@ -452,7 +535,7 @@
                     class="input-field w-full rounded-md text-gray-800 h-40"
                   ></textarea>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                   <label
                     class="block text-sm font-medium mb-1"
                     for="referralSource"
@@ -479,16 +562,242 @@
             </div>
           </form>
         </div>
-      </div>
 
-      <!-- PROCEED TO PAYMENT button outside the grid -->
-      <button
-        type="submit"
-        id="proceedToPaymentButtonMobile"
-        class="lg:hidden w-full bg-orange-600 text-white font-bold py-3 px-4 rounded mt-6 hover:bg-orange-700 transition duration-300"
-      >
-        PROCEED TO PAYMENT
-      </button>
+        <!-- Right column (pricing) -->
+        <div class="lg:order-2 order-last">
+          <h3 class="text-xl font-bold mb-2 text-orange-500">
+            Order Your Child's First Astro Report
+          </h3>
+          <p class="text-2xl sm:text-3xl font-bold text-orange-600 mb-4">
+            ₹1,699 <span class="text-sm text-gray-600">for full report</span>
+          </p>
+
+          <!-- Accordions -->
+          <div class="space-y-2">
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Kundli and Divisional Birth Charts</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹399</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <!-- Chart Items -->
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Lagna Chart</span>
+                                <p class="text-sm text-gray-600">Birth Ascendant Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Moon Chart</span>
+                                <p class="text-sm text-gray-600">Emotional & Mental Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Navamsha Chart</span>
+                                <p class="text-sm text-gray-600">Destiny & Marriage Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Chalit Chart</span>
+                                <p class="text-sm text-gray-600">Current Life Phase Analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-star text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Horoscope Analysis</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹1,399</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Planetary Positions</span>
+                                <p class="text-sm text-gray-600">Detailed analysis of celestial influences</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Life Predictions</span>
+                                <p class="text-sm text-gray-600">Future path and potential outcomes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-om text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Sacred Auspicious Sounds for Naamkaran</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹700</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Name Selection</span>
+                                <p class="text-sm text-gray-600">Astrologically aligned naming guidance</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Sacred Sounds</span>
+                                <p class="text-sm text-gray-600">Vedic phonetic recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-user text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Personality and Unique Qualities</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹2,100</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Character Analysis</span>
+                                <p class="text-sm text-gray-600">Detailed personality insights</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Talent Identification</span>
+                                <p class="text-sm text-gray-600">Natural abilities and potential</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <p class="flex justify-between">
+              <span>Including taxes</span><span>₹7,100</span>
+            </p>
+            <p class="flex justify-between">
+              <span>Instant Discount</span><span>-₹5,401</span>
+            </p>
+            <p class="flex justify-between font-bold">
+              <span>Total Due Today</span><span>₹1,699</span>
+            </p>
+          </div>
+          <button
+            type="submit"
+            id="proceedToPaymentButton"
+            class="w-full bg-orange-600 text-white font-bold py-3 px-4 rounded mt-6 hover:bg-orange-700 transition duration-300"
+          >
+            PROCEED TO PAYMENT
+          </button>
+        </div>
+      </div>
     </div>
   </body>
 </html>
