@@ -134,17 +134,16 @@ const proceedToPaymentButton = document.getElementById(
 );
 proceedToPaymentButton.addEventListener("click", function (event) {
   event.preventDefault(); // Always prevent default to handle form submission manually
-  if (validateForm()) {
-    console.log("Form is valid. Proceeding to payment...");
-    // Add your payment processing logic here
-    initiateRazorpayPayment();
-  }
+  initiateRazorpayPayment();
+  // if (validateForm()) {
+  //   console.log("Form is valid. Proceeding to payment...");
+  //   // Add your payment processing logic here
+  // }
 });
 
-function initiateRazorpayPayment() {
-  // Replace with your actual Razorpay key
-const razorpayKey = RAZORPAY_KEY;  // Netlify will replace this with the actual value
-  
+async function initiateRazorpayPayment() {
+  // Fetch the Razorpay key dynamically from Netlify
+  const response = await fetch("/.netlify/functions/get-razorpay-key");
 
   // Create a new Razorpay instance
   const rzp = new Razorpay({
