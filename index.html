@@ -144,9 +144,162 @@
         }
       }
     </style>
+    <style>
+      body {
+        padding-top: px;
+      }
+
+      .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ff0000;
+        color: white;
+        padding: 4px 0;
+        z-index: 999;
+      }
+
+      .banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .timer-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .attention-text {
+        font-weight: bold;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .timer {
+        display: flex;
+        gap: 8px;
+      }
+
+      .circle {
+        background-color: white;
+        color: black;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+      }
+
+      .circle span {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .circle small {
+        font-size: 9px;
+        margin-top: 1px;
+      }
+
+      .bundle-button {
+        background-color: #00b300;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .bundle-button:hover {
+        background-color: #008000;
+      }
+
+      /* Adjust header positioning */
+      .hero {
+        margin-top: 45px; /* Match the body padding-top */
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 1.5px; /* Reduced padding for smaller banner */
+        }
+        
+        .timer-section {
+          flex-direction: column;
+          gap: 6px;
+          padding: 2px;
+        }
+        
+        .attention-text {
+          font-size: 12px; /* Smaller text for mobile */
+          text-align: center;
+        }
+        
+        .circle {
+          width: 35px;
+          height: 35px;
+        }
+        
+        .circle span {
+          font-size: 12px;
+        }
+        
+        .circle small {
+          font-size: 8px;
+        }
+        
+        .bundle-button {
+          padding: 4px 8px;
+          font-size: 12px;
+        }
+        
+        .hero {
+          margin-top: 90px;
+        }
+      }
+    </style>
     
   </head>
   <body class="font-font1 bg-white1 scroll-smooth">
+    <div class="banner">
+      <div class="banner-content">
+        <div class="timer-section">
+          <p class="attention-text">⚡ ATTENTION! PRICE GOES UP AFTER TIMER ENDS!</p>
+          <div class="timer">
+            <div class="circle">
+              <span id="days">00</span>
+              <small>Days</small>
+            </div>
+            <div class="circle">
+              <span id="hours">00</span>
+              <small>Hours</small>
+            </div>
+            <div class="circle">
+              <span id="minutes">00</span>
+              <small>Min</small>
+            </div>
+            <div class="circle">
+              <span id="seconds">00</span>
+              <small>Sec</small>
+            </div>
+          </div>
+          <button class="bundle-button">GET YOUR BUNDLE</button>
+        </div>
+      </div>
+    </div>
+
     <section
       style="background-image: url('./images/hero-background.png')"
       class="hero w-screen max-w-full h-screen pt-8 bg-black bg-bottom-4 md:bg-bottom-5 bg-no-repeat md:pt-2"
@@ -196,27 +349,12 @@
               <a href="./payment/Career-Payment.html"> Claim Your 2025 Session</a>
           </button>
         </header>
-        <div
-          id="burger-menu"
-          class="absolute top-0 left-0 w-4/6 h-screen bg-black1 hidden"
-        >
-          <div
-            class="flex items-center justify-start gap-4 text-white p-4 mt-4"
-          >
-            <i
-              id="burger-menu_close_btn"
-              class="fa-solid fa-xmark text-4xl cursor-pointer"
-            ></i>
-            <img
-              src="./images/AsliAstro.png"
-              class="mb-2 text-black"
-              alt="logo"
-              srcset=""
-            />
+        <div id="burger-menu" class="absolute top-100 left-0 w-4/6 h-screen bg-black1 hidden">
+          <div class="flex items-center justify-start gap-4 text-white p-4 mt-4">
+            <i id="burger-menu_close_btn" class="fa-solid fa-xmark text-4xl cursor-pointer"></i>
+            <img src="./images/AsliAstro.png" class="mb-2 text-black" alt="logo" srcset="" />
           </div>
-          <div
-            class="w-full my-4 border-b-2 border-white border-opacity-50"
-          ></div>
+          <div class="w-full my-4 border-b-2 border-white border-opacity-50"></div>
           <nav class="grid grid-cols-1 gap-4 mt-[5rem] px-8">
             <span
               class="w-full border-b-2 border-white border-opacity-50 text-white flex items-center justify-between"
@@ -1118,6 +1256,97 @@
         // Initialize dots
         updateDots(currentIndex);
       });
+    </script>
+    <script>
+    // Set the date we're counting down to (24 hours from now)
+    const countDownDate = new Date("Jan 5, 2025 15:37:25").getTime();
+
+    // Update the countdown every 1 second
+    const x = setInterval(function() {
+        // Get today's date and time
+        const now = new Date().getTime();
+        
+        // Find the distance between now and the countdown date
+        const distance = countDownDate - now;
+        
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Display the results
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+        
+        // If the countdown is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("days").innerHTML = "00";
+            document.getElementById("hours").innerHTML = "00";
+            document.getElementById("minutes").innerHTML = "00";
+            document.getElementById("seconds").innerHTML = "00";
+        }
+    }, 1000);
+    </script>
+    <style>
+      /* Sidebar styles */
+      #burger-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 66.666667%;
+        height: 100vh;
+        background-color: #000;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+
+      /* Show the sidebar when active */
+      #burger-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Hide the menu button when the sidebar is active */
+      #burger-menu-btn {
+        position: relative;
+        z-index: 1002;
+        cursor: pointer;
+      }
+
+      #burger-menu.active + #burger-menu-btn {
+        display: none; /* Hide the menu button */
+      }
+
+      /* Close button */
+      #burger-menu_close_btn {
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+        z-index: 1002;
+      }
+
+      /* Other styles remain unchanged */
+    </style>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const burgerBtn = document.getElementById('burger-menu-btn');
+        const closeBtn = document.getElementById('burger-menu_close_btn');
+        const menu = document.getElementById('burger-menu');
+
+        burgerBtn.addEventListener('click', function() {
+            menu.classList.add('active');
+            burgerBtn.style.display = 'none'; // Hide the menu button
+        });
+
+        closeBtn.addEventListener('click', function() {
+            menu.classList.remove('active');
+            burgerBtn.style.display = 'block'; // Show the menu button
+        });
+    });
     </script>
   </body>
 </html>
