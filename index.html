@@ -3,25 +3,273 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2025 Astrology</title>
+    <title>Asli Astro</title>
     <link rel="icon" type="image/x-icon" href="/images/logo-black.png" />
     <link href="./output.css" rel="stylesheet" />
     <link
       href="https://api.fontshare.com/v2/css?f[]=general-sans@200,201,300,301,400,401,500,501,600,601,700,701,1,2&display=swap"
       rel="stylesheet"
     />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
+      integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Add the slick-theme.css if you want default styling -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
+    <!-- Add the slick-theme.css if you want default styling -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
     />
+
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <!-- font awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+    <style>
+      /* Testimonials specific styles */
+      .testimonials-slider {
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .testimonials-slider .slide {
+        padding: 0 10px;
+        box-sizing: border-box;
+      }
+
+      .testimonials-slider .slick-list {
+        margin: 0 -10px;
+      }
+
+      .testimonials-slider .slick-track {
+        display: flex !important;
+        align-items: center;
+      }
+
+      /* Dots styling for testimonials */
+      .testimonials-slider .slick-dots {
+        display: none; /* Hide by default */
+        justify-content: center;
+        margin: 1rem 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      /* Show dots only on mobile */
+      @media (max-width: 767px) {
+        .testimonials-slider .slick-dots {
+          display: flex;
+          margin: 24px 0 16px 0 !important;
+        }
+        
+        .testimonials-slider .slick-dots li {
+          margin: 0 0.25rem;
+        }
+
+        .testimonials-slider .slick-dots button {
+          display: block;
+          width: 1rem !important;
+          height: 0.5rem !important;
+          padding: 0;
+          border: none;
+          border-radius: 0% !important;
+          background-color: rgba(0, 0, 0, 0.18) !important;
+          text-indent: -9999px;
+        }
+
+        .testimonials-slider .slick-dots li.slick-active button {
+          background-color: #d96200 !important;
+        }
+      }
+
+      /* Navigation arrows */
+      .testimonials-slider .slick-prev,
+      .testimonials-slider .slick-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        color: white;
+        border: none;
+      }
+
+      .testimonials-slider .slick-prev {
+        left: -25px;
+      }
+
+      .testimonials-slider .slick-next {
+        right: -25px;
+      }
+
+      @media (max-width: 767px) {
+        .testimonials-slider {
+          padding-bottom: 4rem !important;
+        }
+        
+        .testimonials-slider .slick-dots {
+          display: flex;
+          position: relative;
+          bottom: -3rem !important;
+          margin: 0;
+          padding: 0;
+        }
+
+        .testimonials-slider .slide {
+          margin-bottom: 3rem !important;
+        }
+      }
+    </style>
+    <style>
+      body {
+        padding-top: px;
+      }
+
+      .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ff0000;
+        color: white;
+        padding: 4px 0;
+        z-index: 999;
+      }
+
+      .banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .timer-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .attention-text {
+        font-weight: bold;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .timer {
+        display: flex;
+        gap: 8px;
+      }
+
+      .circle {
+        background-color: white;
+        color: black;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+      }
+
+      .circle span {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .circle small {
+        font-size: 9px;
+        margin-top: 1px;
+      }
+
+      .bundle-button {
+        background-color: #00b300;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .bundle-button:hover {
+        background-color: #008000;
+      }
+
+      /* Adjust header positioning */
+      .hero {
+        margin-top: 45px; /* Match the body padding-top */
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 1.5px; /* Reduced padding for smaller banner */
+        }
+        
+        .timer-section {
+          flex-direction: column;
+          gap: 6px;
+          padding: 2px;
+        }
+        
+        .attention-text {
+          font-size: 12px; /* Smaller text for mobile */
+          text-align: center;
+        }
+        
+        .circle {
+          width: 35px;
+          height: 35px;
+        }
+        
+        .circle span {
+          font-size: 12px;
+        }
+        
+        .circle small {
+          font-size: 8px;
+        }
+        
+        .bundle-button {
+          padding: 4px 8px;
+          font-size: 12px;
+        }
+        
+        .hero {
+          margin-top: 90px;
+        }
+      }
+    </style>
     <style>
       .slick-slide {
         outline: none;
@@ -45,7 +293,240 @@
       .slick-next {
         right: -7px;
       }
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .popup.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .popup-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        position: relative;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-20px);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .popup.active .popup-content {
+        transform: translateY(0);
+      }
+
+      .popup h2 {
+        color: #f97316; /* orange-500 */
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .popup p {
+        color: #4b5563; /* gray-600 */
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      .close {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #6b7280; /* gray-500 */
+        transition: color 0.2s;
+      }
+
+      .close:hover {
+        color: #1f2937; /* gray-800 */
+      }
+
+      .join-button {
+        background-color: #f97316; /* orange-500 */
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 9999px;
+        border: none;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .join-button:hover {
+        background-color: #ea580c; /* orange-600 */
+      }
     </style>
+    <style>
+      body {
+        padding-top: 0px;
+      }
+
+      .banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ff0000;
+        color: white;
+        padding: 4px 0;
+        z-index: 999;
+      }
+
+      .banner-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .timer-section {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .attention-text {
+        font-weight: bold;
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .timer {
+        display: flex;
+        gap: 8px;
+      }
+
+      .circle {
+        background-color: white;
+        color: black;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+      }
+
+      .circle span {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .circle small {
+        font-size: 9px;
+        margin-top: 1px;
+      }
+
+      .bundle-button {
+        background-color: #00b300;
+        color: white;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .bundle-button:hover {
+        background-color: #008000;
+      }
+
+      /* Adjust header positioning */
+      .hero {
+        margin-top: 45px; /* Match the body padding-top */
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 1.5px; /* Reduced padding for smaller banner */
+        }
+        
+        .timer-section {
+          flex-direction: column;
+          gap: 6px;
+          padding: 2px;
+        }
+        
+        .attention-text {
+          font-size: 12px; /* Smaller text for mobile */
+          text-align: center;
+        }
+        
+        .circle {
+          width: 35px;
+          height: 35px;
+        }
+        
+        .circle span {
+          font-size: 12px;
+        }
+        
+        .circle small {
+          font-size: 8px;
+        }
+        
+        .bundle-button {
+          padding: 4px 8px;
+          font-size: 12px;
+        }
+        
+        .hero {
+          margin-top: 90px;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-font1 bg-white1 scroll-smooth">
+    <div class="banner">
+      <div class="banner-content">
+        <div class="timer-section">
+          <p class="attention-text">⚡ATTENTION! 2025 ANALYSIS IS CLOSING SOON!</p>
+          <div class="timer">
+            <div class="circle">
+              <span id="days">00</span>
+              <small>Days</small>
+            </div>
+            <div class="circle">
+              <span id="hours">00</span>
+              <small>Hours</small>
+            </div>
+            <div class="circle">
+              <span id="minutes">00</span>
+              <small>Min</small>
+            </div>
+            <div class="circle">
+              <span id="seconds">00</span>
+              <small>Sec</small>
+            </div>
+          </div>
+          <button class="bundle-button">GET YOUR BUNDLE</button>
+        </div>
+      </div>
+    </div>
 
   </head>
   <body class="bg-white1">
@@ -75,7 +556,7 @@
             <button
               class="free-session bg-black1 rounded-[35px] py-3 px-4 border border-black1 shadow-3xl"
             >
-              <a href="./payment/Career-Payment.html">
+              <a href="./payment/2025-Astrology-Payment.html">
                 Claim Your 2025 Session</a
               >
             </button>
@@ -94,15 +575,15 @@
             ></i>
             <img src="./images/logo-black.png" alt="" />
           </div>
-          <button
+          <!-- <button
             class="free-session ml-auto bg-black1 text-white rounded-[35px] py-3 px-4 border border-black1 shadow-3xl"
           >
-            <a href="./payment/Career-Payment.html"> Claim Your 2025 Session</a>
-          </button>
+            <a href="./payment/2025-Astrology-Payment.html"> Claim Your 2025 Session</a>
+          </button> -->
         </header>
         <div
           id="burger-menu"
-          class="absolute top-0 left-0 w-4/6 h-screen bg-black1 hidden"
+          class="fixed left-0 w-4/6 h-screen bg-black1 hidden"
         >
           <div
             class="flex items-center justify-start gap-4 text-white p-4 mt-4"
@@ -144,41 +625,41 @@
             <button
               class="free-session text-white my-8 md:text-[14px] bg-black1 rounded-[35px] py-3 px-4 border border-white border-opacity-50 shadow-3xl"
             >
-              <a href="./payment/Career-Payment.html">
+              <a href="./payment/2025-Astrology-Payment.html">
                 Claim Your 2025 Session</a
               >
             </button>
           </nav>
         </div>
-
         <div
-          class="mt-24 md:mt-[1.5rem] w-[70%] md:w-[90%] m-auto text-center text-white flex items-center justify-center flex-col gap-8"
+          class="mt-8 md:mt-6 w-4/5 mx-auto md:max-0 md:w-full md:px-2 text-white flex flex-col items-center justify-center gap-8"
         >
-          <h2
-            class="font-semibold capitalize leading-[4rem] text-orange-600 md:leading-[2.5rem] text-[56px] md:text-[38px]"
-          >
-            Navigate life's complex journey with the right trustworthy Vedic
-            guide
-          </h2>
-          <p class="text-xl font-medium text-white w-[80%] md:text-lg">
-            Secure your career, relationships, marriage and children's lives
-            with the power of Vedic astrology. Make better decisions for
-            yourself and your loved ones with an insightful understanding of
-            your future.
+          <h1 class="font-semibold text-orange-600 text-4xl md:text-3xl leading-tight md:leading-relaxed">
+            <span class="block md:hidden mt-4 text-5xl md:text-4xl text-center">
+              Don't let 2025 pass you by! <br />
+              Claim your year with our forecast.
+            </span>
+            <span class="hidden md:block mt-4 text-5xl md:text-5xl text-center">
+              Don't let 2025 <br /> Pass you by! <br />
+              Claim your year with our forecast.
+            </span>
+          </h1>
+          <p class="text-2xl md:text-xl  font-medium text-white w-4/5 text-center md:w-5/5">
+            See your daily forecast, get personalized answers to your questions. Navigate the year with confidence and clarity.
           </p>
-          <a
-            href="./payment/2025-Astrology-Payment.html"
-            class="text-xl flex items-center justify-center gap-4 md:gap-2 bg-black2 rounded-[35px] py-3 px-10 md:px-5 border border-black2 shadow-3xl text-white"
-          >
-            Get your Vedic reading now
-            <i class="fas fa-arrow-right text-4xl md:text-2xl"></i>
-          </a>
+          <button
+            class="free-session md:mt-4  bg-black1 rounded-[35px] py-3 px-8 border border-black1 shadow-3xl"
+        >
+            <a class="flex items-center justify-center gap-4  md:text-xl" href="./payment/2025-Astrology-Payment.html">
+              
+              Know your 2024 now <i class="fas fa-arrow-right text-2xl md:text-xl"></i></a
+            >
+          </button>
         </div>
-      </div>
     </section>
 
     <section
-      class="hero overflow-hidden w-screen max-w-full py-24  h-screen md:h-max px-20 md:px-4 md:py-8 bg-bottom-4 md:bg-bottom-5 bg-no-repeat "
+      class="overflow-hidden w-screen max-w-full pt-6 pb-20  h-max min-h-screen mt-8 md:mt-2 md:h-max px-20 md:px-4 md:py-4 md:pb-10 bg-bottom-4 md:bg-bottom-5 bg-no-repeat "
     >
       <div
   class="flex flex-row items-start gap-6 md:flex-col-reverse md:items-start"
@@ -187,30 +668,30 @@
           <div id="main-slider" class="slick-slider mb-4">
             <div>
               <img
-                src="./images/child-astrology/1.png"
-                alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
-              />
-            </div>
-            <div>
-              <img
                 src="./images/child-astrology/2.png"
                 alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
+                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/1.png"
+                src="./images/child-astrology/3.png"
                 alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
+                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/2.png"
+                src="./images/child-astrology/4.png"
                 alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
+                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
+              />
+            </div>
+            <div>
+              <img
+                src="./images/child-astrology/5.png"
+                alt="Slide 1"
+                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
               />
             </div>
           </div>
@@ -219,97 +700,85 @@
           <div id="thumb-slider" class="slick-slider md:!hidden">
             <div>
               <img
-                src="./images/child-astrology/1.png"
+                src="./images/child-astrology/2.png"
                 alt="Thumb 1"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/2.png"
+                src="./images/child-astrology/3.png"
                 alt="Thumb 2"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/1.png"
+                src="./images/child-astrology/4.png"
                 alt="Thumb 3"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/2.png"
+                src="./images/child-astrology/5.png"
                 alt="Thumb 4"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
           </div>
         </div>
-        <!-- <div class="w-1/2 md:w-full">
-          <span class="text-sm flex items-center justify-start gap-2"
-            ><a href="./index.html">Home</a
-            ><img src="./images/breadcrumbs-arrow.svg" alt="" /><a
-              href="./Products.html"
-              >Products</a
-            ><img src="./images/breadcrumbs-arrow.svg" alt="" /><a
-              class="underline"
-              href="./2025-Astrology.html"
-              >2025 Astrology</a
-            >
-          </span> -->
           <div class="mt-0">
-            <h2 class="text-5xl font-medium">
-              Unlock Your 2025 Potential Before The Year Begins
+            <h2 class="text-5xl font-medium leading-tight mb-6 text-gray-900">
+              2025 is going to be uncertain.<br/>
+              <span class="text-orange-500">Understand how this will affect you</span>
             </h2>
-            <p class="mt-4 text-xl font-normal text-gray-700">
-              <strong class="text-black1">The future holds many unknowns</strong
-              >. You want to be prepared for 2025, but is the uncertainty
-              holding you back from making important decisions? This is
-              absolutely normal. Hence, Asli Astro offers a fresh perspective.
-              We use the ancient science of Vedic astrology to provide
-              <strong class="text-black1">personalized insights</strong> into
-              your 2025 timeline. No vague predictions or generic horoscopes.
-              Just honest critical insights.
-            </p>
-            <div
-              class="flex items-start md:items-center justify-start gap-10 mt-2"
-            >
-              <p class="text-3xl md:text-2xl">
-                <span class="text-3xl w-1/3 line-through md:text-lg"
-                  >₹ 8000</span
-                >
-                ₹ 4000
+            <div class="space-y-4">
+              <p class="text-xl text-gray-700 leading-relaxed">
+                No complex charts. No confusing symbols. Just clear, actionable insights into your 2025 journey.
               </p>
-              <p
-                class="rounded-full text-xl md:text-lg text-orange-500 px-4 py-2 border border-orange-500 bg-orange-100"
-              >
-                <i class="fas fa-star"></i>
-                &nbsp
-                <span class="">4.8</span>
+              <p class="text-xl text-gray-700 leading-relaxed">
+                AsliAstro is the only service offering detailed day-by-day kundali readings for 2025. Our expert astrologers translate ancient wisdom into practical guidance, helping you navigate life's opportunities and challenges with confidence.
               </p>
             </div>
-            <div class="flex items-start justify-between mt-2">
-              <p class="text-2xl md:text-xl text-end text-gray-500">
-                <span class="text-green1">90% </span>of the buyers recommend
-                this
-              </p>
+          
+            <div class="flex flex-col rounded-xl p-0 mt-8">
+              <div class="flex items-start md:items-center justify-start gap-6 mb-4">
+                <div class="flex flex-col">
+                  <span class="text-3xl text-gray-500 line-through">₹ 1250</span>
+                  <span class="text-5xl font-bold text-green-600">₹ 499</span>
+                  <span class="text-sm text-green-600">Save ₹750 Today!</span>
+                </div>
+                <div class="flex flex-col items-center bg-white px-12 py-2 rounded-[30px] border border-yellow-400">
+                  <div class="flex items-center justify-center gap-2">
+                    <i class="fas fa-star text-yellow-400"></i>
+                    <span class="text-xl font-semibold">4.8/5</span>
+                  </div>
+                  <!-- <span class="text-lg text-gray-600 font-semibold">Excellent</span> -->
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 mb-6">
+                <span class="text-xl font-semibold text-gray-700">
+                  <span class="text-green-600 font-bold">6,977+</span> satisfied customers
+                </span>
+                <i class="fas fa-check-circle text-green-500"></i>
+              </div>
+
+              <button class="w-full py-6 bg-orange-500 hover:bg-orange-400 active:scale-95 transform transition-all duration-200 text-xl font-bold text-white rounded-xl flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                <i class="fas fa-lock"></i>
+                <a href="./payment/2025-Astrology-Payment.html">Secure Your 2025 Reading Now</a>
+              </button>
             </div>
-            <button
-              class="px-8 py-3 mt-2 bg-black text-xl font-semibold text-white rounded-xl"
-            >
-              <a href="./payment/2025-Astrology-Payment.html">Get Now</a>
-            </button>
           </div>
         </div>
       </div>
     </section>
 
     <section
-      class="relative bg-ganpati bg-contain bg-no-repeat bg-center py-28 px-[10%] pb-28 md:px-4 md:py-10"
+      class="relative bg-ganpati bg-contain bg-no-repeat bg-center py-28 px-[10%] pb-28 md:px-4 md:py-10 "
     >
-      <div class="absolute inset-0 bg-white bg-opacity-80 w-full"></div>
+      <div class="absolute inset-0 bg-white bg-opacity-[0.65] w-full"></div>
       <div class="relative z-10">
         <div class="details">
           <div class="tabs flex items-center justify-start mb-8 gap-4 py-3">
@@ -330,47 +799,43 @@
               class="text-2xl font-semibold border-b-0 border-gray-700 pr-3 pl-1 cursor-pointer"
             >
               FAQs
-            </p>
+                </p>
           </div>
           <div id="block_desc">
             <ul
               class="list-disc pl-4 font-normal space-y-6 text-xl text-orange-700 py-3"
             >
               <li>
-                <strong class="font-bold text-2xl">Yearly Overview:</strong
+                <strong class="font-normal text-2xl">Get a comprehensive overview of the major events and in 2025. You will get all the info without any charts or complexities.  Understand how these cosmic shifts will influence your personal and professional life.</strong
                 ><br />
                 <span class="text-gray-700 leading-7">
-                  Get a comprehensive overview of the major astrological events
-                  and transits in 2025. Understand how these cosmic shifts will
-                  influence your personal and professional life.
+                  
                 </span>
               </li>
               <li>
-                <strong class="font-bold text-2xl"
-                  >Personalized Insights:</strong
+                <strong class="font-normal text-2xl"
+                  >You will get 10 extra reports for 10 other aspects of your life </strong
                 ><br />
                 <span class="text-gray-700 leading-7">
-                  Discover how the planetary movements will specifically affect
+                  <!-- Discover how the planetary movements will specifically affect
                   your zodiac sign. Gain insights into your strengths and
-                  challenges for the year.
+                  challenges for the year. -->
                 </span>
               </li>
               <li>
-                <strong class="font-bold text-2xl">Actionable Guidance:</strong
+                <strong class="font-normal text-2xl">Receive practical advice and strategies to navigate the year successfully. Learn how to make the most of favorable periods and mitigate potential challenges by talking to our pandit jee in our whatsapp group</strong
                 ><br />
                 <span class="text-gray-700 leading-7">
-                  Receive practical advice and strategies to navigate the year
+                  <!-- Receive practical advice and strategies to navigate the year
                   successfully. Learn how to make the most of favorable periods
-                  and mitigate potential challenges.
+                  and mitigate potential challenges. -->
                 </span>
               </li>
               <li>
-                <strong class="font-bold text-2xl">Spiritual Growth:</strong
+                <strong class="font-normal text-2xl">You will get extra 5 years of report from 2026 to 2030 </strong
                 ><br />
                 <span class="text-gray-700 leading-7">
-                  Explore opportunities for personal and spiritual growth in
-                  2025. Embrace the cosmic energies to enhance your well-being
-                  and fulfillment.
+                  
                 </span>
               </li>
             </ul>
@@ -380,10 +845,10 @@
             <!-- Stats Section -->
             <div class="reviews-stats mb-8 p-6 bg-white rounded-lg shadow-md">
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-2xl font-bold">Customer Reviews</h3>
+                <h3 class="text-2xl font-bold">Customer Reviews:</h3>
                 <div class="flex items-center">
-                  <span class="text-3xl font-bold text-orange-500">4.8</span>
-                  <span class="text-gray-500 ml-2">/ 5</span>
+                  <span class="text-2xl font-bold text-orange-500">4.2 / 5</span>
+                  <!-- <span class="text-gray-500 ml-2"></span> -->
                 </div>
               </div>
               <div class="flex items-center gap-2">
@@ -403,9 +868,7 @@
                 <!-- Individual review cards -->
                 <div class="review-card p-6 bg-white rounded-lg shadow-md">
                   <p class="mb-4 text-gray-700 text-lg">
-                    "The 2025 astrology report was incredibly insightful! It
-                    helped me plan my year better and focus on my goals. Highly
-                    recommend!"
+                    "a.	The 2025 astrology report was incredibly insightful! It helped me plan my year better. Honestly socha nahi tha aisa kuchh exist karta hai !"
                   </p>
                   <div class="flex items-center justify-between">
                     <strong class="text-orange-600">Anjali K., Mumbai</strong>
@@ -472,7 +935,7 @@
                   <i class="faq-icon fas fa-chevron-down text-orange-500"></i>
                 </button>
                 <div class="faq-answer hidden p-6">
-                  <ul class="space-y-2 text-gray-700 text-lg">
+                  <ul class="space-y-2 text-orange-700 text-lg">
                     <li>
                       <i class="fas fa-lightbulb text-orange-400 mr-2"></i>Our
                       reports are based on detailed Vedic astrology analysis,
@@ -572,6 +1035,61 @@
       </div>
     </section>
 
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <section class="bg-[#FFF9F0] py-16 min-h-[100vh] px-[10%] md:px-4">
       <h2 class="text-4xl text-orange-600 mb-6 font-bold">
         This report includes:
@@ -580,71 +1098,85 @@
         <!-- Left Column -->
         <div class="col-span-7 md:col-span-12 space-y-6">
           <h3 class="text-3xl font-semibold text-orange-600">
-            <i class="fas fa-chart-pie text-orange-500 mr-2"></i>2025 Transit
-            Analysis
+            <i class="fas fa-chart-pie text-orange-500 mr-2"></i>Kundali
+            
           </h3>
           <div class="space-y-4">
-            <h4 class="text-xl font-semibold text-orange-600">
-              Detailed Transit Charts:
-            </h4>
+            <!-- <h4 class="text-xl font-semibold text-orange-600">
+            Daily kundali and what your day is going to be like :
+            </h4> -->
             <ul class="space-y-4 text-gray-700 text-lg">
+
               <li>
-                <i class="fas fa-chart-line text-orange-400 mr-2"></i>Major
-                Planetary Positions in 2025
+                <i class="fas fa-moon text-orange-400 mr-2"></i>
+                Daily kundali and what your day is going to be like
               </li>
+
+
               <li>
-                <i class="fas fa-moon text-orange-400 mr-2"></i>Significant
-                Transit Periods
+                <i class="fas fa-chart-line text-orange-400 mr-2"></i>A highlight for if the day is going to be good or bad for you
               </li>
+
               <li>
+                <i class="fas fa-moon text-orange-400 mr-2"></i>
+                Dasha Analysis for 2025
+              </li>
+
+
+
+
+
+
+              <!-- <li>
                 <i class="fas fa-chart-bar text-orange-400 mr-2"></i>Dasha
-                Analysis for 2025
-              </li>
+                
+              </li> -->
               <li>
                 <i class="fas fa-chart-area text-orange-400 mr-2"></i>Monthly
-                Breakdowns
+                Monthly Breakdowns for you 
               </li>
               <li>
-                <i class="fas fa-globe text-orange-400 mr-2"></i>Key
-                Astrological Events
+                <i class="fas fa-globe text-orange-400 mr-2"></i>
+                Key Events and forecasting 
               </li>
             </ul>
           </div>
           <div class="space-y-4">
             <h4 class="text-xl font-semibold text-orange-600">
-              Life Area Analysis:
+              Bonus: Available only today 
             </h4>
             <ul class="space-y-4 text-gray-700 text-lg">
               <li>
-                <i class="fas fa-heart text-orange-400 mr-2"></i>Love &
-                Relationships
+                <i class="fas fa-heart text-orange-400 mr-2"></i>Love report for 2025 (<strong style="color: #2d3748;">Worth</strong> Rs 1000)
               </li>
               <li>
-                <i class="fas fa-briefcase text-orange-400 mr-2"></i>Career &
-                Business
+                <i class="fas fa-briefcase text-orange-400 mr-2"></i>Career report for 2025 (<strong style="color: #2d3748;">Worth</strong> Rs 2000)
               </li>
               <li>
-                <i class="fas fa-coins text-orange-400 mr-2"></i>Finance &
-                Wealth
+                <i class="fas fa-coins text-orange-400 mr-2"></i>Finance report for 2025 (<strong style="color: #2d3748;">Worth</strong> Rs 1000)
               </li>
               <li>
-                <i class="fas fa-heartbeat text-orange-400 mr-2"></i>Health &
-                Wellness
+                <i class="fas fa-heartbeat text-orange-400 mr-2"></i>Health report for 2025 (<strong style="color: #2d3748;">Worth</strong> Rs 1000)
               </li>
               <li>
-                <i class="fas fa-graduation-cap text-orange-400 mr-2"></i
-                >Education & Learning
+                <i class="fas fa-graduation-cap text-orange-400 mr-2"></i>Gemstone recommendations for 2025 (<strong style="color: #2d3748;">Worth</strong> Rs 2000)
               </li>
               <li>
-                <i class="fas fa-home text-orange-400 mr-2"></i>Family & Home
+                <i class="fas fa-home text-orange-400 mr-2"></i>Education report for 2025 (<strong style="color: #2d3748;">Worth</strong> Rs 1000)
               </li>
               <li>
-                <i class="fas fa-plane text-orange-400 mr-2"></i>Travel &
-                Relocation
+                <i class="fas fa-plane text-orange-400 mr-2"></i>Foreign travel report for 2025  (<strong style="color: #2d3748;">Worth</strong> Rs 1000)
               </li>
               <li>
-                <i class="fas fa-star text-orange-400 mr-2"></i>Personal Growth
+                <i class="fas fa-star text-orange-400 mr-2"></i>Next 5-year report (<strong style="color: #2d3748;">Worth</strong> Rs 4000)
+
               </li>
+              <li>
+                <i class="fas fa-star text-orange-400 mr-2"></i>Daily Pooja recommendation (<strong style="color: #2d3748;">Worth</strong> Rs 500)
+
+              </li>
+              
+
             </ul>
           </div>
         </div>
@@ -653,33 +1185,28 @@
         <div class="col-span-5 md:col-span-12 space-y-8">
           <div class="space-y-4">
             <h3 class="text-3xl font-semibold text-orange-600">
-              <i class="fas fa-gem text-orange-500 mr-2"></i>Favorable Periods
+              <i class="fas fa-gem text-orange-500 mr-2"></i>Whatsapp Group Access
             </h3>
             <ul class="space-y-4 text-gray-700 text-lg">
               <li>
-                <i class="fas fa-calendar text-orange-400 mr-2"></i>Best Months
-                for New Initiatives
+                <i class="fas fa-calendar text-orange-400 mr-2"></i>Ask questions to our pandit jee (You get whatsapp group access when you buy)
               </li>
               <li>
-                <i class="fas fa-clock text-orange-400 mr-2"></i>Auspicious
-                Timings for Important Decisions
+                <i class="fas fa-clock text-orange-400 mr-2"></i>Daily pooja guidance on whatsapp group
               </li>
               <li>
-                <i class="fas fa-shield-alt text-orange-400 mr-2"></i>Preventive
-                Measures for Challenging Periods
+                <i class="fas fa-shield-alt text-orange-400 mr-2"></i>Lots of spiritual guidance every day 
               </li>
             </ul>
           </div>
 
           <div class="space-y-4">
             <h3 class="text-3xl font-semibold text-orange-600">
-              <i class="fas fa-lightbulb text-orange-500 mr-2"></i>Practical
-              Guidance
+              <i class="fas fa-lightbulb text-orange-500 mr-2"></i>More bonus 
             </h3>
             <ul class="space-y-4 text-gray-700 text-lg">
               <li>
-                <i class="fas fa-tasks text-orange-400 mr-2"></i>Monthly Action
-                Plans
+                <i class="fas fa-tasks text-orange-400 mr-2"></i>Astrology eBook (How to read your own kundali)- Worth Rs 1000
               </li>
               <li>
                 <i class="fas fa-exclamation-triangle text-orange-400 mr-2"></i
@@ -746,10 +1273,10 @@
         <img src="./images/AsliAstro.png" class="" alt="" />
       </div>
       <div class="flex md:hidden flex-row justify-between mt-4 w-2/5">
-        <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
+        <!-- <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
           <h2 class="text-white1 mb-4">Product</h2>
           <a href="/Products.html" class="text-gray-400"> Services</a>
-        </div>
+        </div> -->
         <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
           <h2 class="text-white1 mb-4">Company</h2>
           <a href="about-us.html" class="text-gray-400"> About Us</a>
@@ -768,10 +1295,10 @@
       <div class="hidden md:block w-[100%]">
         <img src="./images/AsliAstro.png" class="" alt="" />
         <div class="flex flex-row justify-between mt-8 w-full">
-          <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
+          <!-- <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
             <h2 class="text-white1 mb-4">Product</h2>
             <a href="./Products.html" class="text-gray-400"> Services</a>
-          </div>
+          </div> -->
           <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
             <h2 class="text-white1 mb-4">Company</h2>
             <a href="about-us.html" class="text-gray-400"> About Us</a>
@@ -899,63 +1426,52 @@
         // Reviews data array
         const reviews = [
           {
-            text: "The 2025 astrology report was incredibly insightful! It helped me plan my year better and focus on my goals. Highly recommend!",
-            author: "Anjali K., Mumbai",
-            rating: 5,
-          },
-          {
-            text: "I was skeptical at first, but the report provided detailed insights that were spot on. It gave me clarity and confidence for 2025.",
-            author: "Rohit S., Delhi",
-            rating: 5,
-          },
-          {
-            text: "The guidance on career and finance was particularly helpful. I feel more prepared to tackle the challenges of the coming year.",
+            text: " Asliastro is better than astrotalk",
             author: "Priya M., Bangalore",
             rating: 4,
           },
           {
-            text: "The spiritual growth section was enlightening. It helped me align my personal goals with the cosmic energies of 2025.",
+            text: " Finally one kundali that I can read. Not complicated at all",
             author: "Kavita R., Chennai",
             rating: 5,
           },
           {
-            text: "A must-have for anyone looking to make the most of 2025. The report is comprehensive and easy to understand.",
+            text: " Finally something that says what it is and does not try to sell me anything extra",
             author: "Amit T., Kolkata",
             rating: 5,
           },
           {
-            text: "The report's insights into relationships and health were very accurate. It helped me improve my personal life significantly.",
+            text: "Asliaastro community is the best. I ordered a kundali from them. I immediately received a call from them and they were super helpful in explaining the kundali to me. I love the whatsapp community",
             author: "Sneha P., Hyderabad",
             rating: 4,
           },
           {
-            text: "The 2025 astrology report was a game-changer for me. It provided clarity and direction for the year ahead.",
+            text: " Asliastro best hai yaaaar",
             author: "Vikram J., Pune",
             rating: 5,
           },
           {
-            text: "I appreciated the practical guidance and action plans. It made the report actionable and relevant to my life.",
+            text: " 499 me to aaj kal coffee bhe nahi aata. Kaafi helpful hai. I specially like the calendar style",
             author: "Neha L., Ahmedabad",
             rating: 5,
           },
           {
-            text: "The report's focus on personal growth and spiritual development was inspiring. It motivated me to pursue my passions.",
+            text: "The report's focus on relationships and health was very accurate.",
             author: "Rajesh K., Jaipur",
             rating: 4,
           },
           {
-            text: "The 2025 astrology report exceeded my expectations. It was detailed, insightful, and beautifully presented.",
+            text: "The 2025 astrology report was a valuable tool for personal growth. It provided clarity and direction for the year ahead.",
             author: "Pooja D., Lucknow",
             rating: 5,
           },
-          // ... Adding more reviews to complete 25
           {
-            text: "The report helped me understand the cosmic influences on my life in 2025. It was a valuable tool for planning my year.",
+            text: "Your 2025 astrology report was incredibly insightful! It helped me plan my year better and focus on my goals. Highly recommend!",
             author: "Sanjay M., Surat",
             rating: 5,
           },
           {
-            text: "I found the report's insights into my zodiac sign to be very accurate. It helped me make informed decisions for 2025.",
+            text: "Meri mummy ka favorite new year gift. Thank you yaar",
             author: "Ritu P., Indore",
             rating: 4,
           },
@@ -965,40 +1481,83 @@
             rating: 5,
           },
           {
-            text: "The report's focus on health and wellness was particularly helpful. It motivated me to prioritize my well-being in 2025.",
+            text: " Pandit jee kitne awesome hain yaar. Thank asli astro",
             author: "Smita R., Nagpur",
             rating: 5,
           },
           {
-            text: "The 2025 astrology report was a comprehensive guide to the year ahead. It helped me align my goals with the cosmic energies.",
+            text: " Got this in 12 hours. I was waiting for so long. Thank you asli astro",
             author: "Alok M., Chandigarh",
             rating: 5,
           },
           {
-            text: "The report's insights into career and finance were spot on. It helped me make informed decisions for 2025.",
+            text: " The report is in pdf format so kaafi easily I was able to open it on my phone and share it with my father",
             author: "Rakesh M., Ranchi",
             rating: 4,
           },
           {
-            text: "The 2025 astrology report was a valuable tool for personal growth. It provided clarity and direction for the year ahead.",
+            text: "Asliastro best hai yaaaar. Kitne awesome log hain",
             author: "Sunita P., Guwahati",
             rating: 5,
           },
           {
-            text: "The report's focus on relationships and health was very accurate. It helped me improve my personal life significantly.",
+            text: "I like asliastro. It is very real",
             author: "Manoj T., Kochi",
             rating: 5,
           },
           {
-            text: "The 2025 astrology report was a great investment. It provided clarity and guidance for the year ahead.",
+            text: "This is a scam. I can’t believe this is real. Update: They refunded my money and gave me a kundali for free",
             author: "Geeta S., Dehradun",
             rating: 4,
           },
           {
             text: "The report's insights into my zodiac sign were very accurate. It helped me make informed decisions for 2025.",
-            author: "Arun K., Coimbatore",
-            rating: 5,
+            author: "Palak K., Coimbatore",
+            rating: 5
           },
+          {
+  text: "The personalized insights were incredibly accurate and helped me make better decisions for the year ahead.",
+  author: "Saanvi S., Delhi",
+  rating: 5
+},
+{
+  text: "I was amazed at how well the predictions aligned with my experiences. It was worth every penny!",
+  author: "Rishika M., Mumbai",
+  rating: 4
+},
+{
+  text: "A comprehensive and beautifully crafted report. Highly recommended for anyone looking for guidance.",
+  author: "Vanshika K., Jaipur",
+  rating: 5
+},
+{
+  text: "The detailed analysis was impressive, but I wish there were more practical tips included.",
+  author: "Rohit T., Pune",
+  rating: 4
+},
+{
+  text: "Fantastic insights and very relatable content. It gave me a lot to think about and plan for.",
+  author: "Anurag J., Noida",
+  rating: 5
+},
+{
+  text: "The 2025 report is a gem! The detailed sections on career and health were spot on for me.",
+  author: "Utkarsh R., Bokaro",
+  rating: 5
+},
+{
+  text: "An outstanding guide for the new year. The presentation was clear, and the advice was practical.",
+  author: "Aditya V., Bangalore",
+  rating: 5
+}
+       
+
+          
+
+
+
+
+          // Add more reviews if needed
         ];
 
         // Function to generate star rating HTML
@@ -1110,6 +1669,163 @@
           $("#tab_desc").removeClass("border-b-2").addClass("border-b-0");
           $("#tab_faq").removeClass("border-b-2").addClass("border-b-0");
       }
+   
+
     </script>
-  </body>
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span id="close-popup" class="close">&times;</span>
+        <h2>Wait! We have a confession.</h2>
+        <p>You can join our WhatsApp group for free daily horoscope guidance.</p>
+        <button id="join-button" class="join-button">Join now</button>
+      </div>
+    </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.getElementById('popup');
+        const closePopup = document.getElementById('close-popup');
+        const joinButton = document.getElementById('join-button');
+        let hasShownPopup = false;
+
+        // Function to show popup
+        function showPopup() {
+            if (!hasShownPopup) {
+                popup.classList.add('active');
+                hasShownPopup = true;
+            }
+        }
+
+        // Function to hide popup
+        function hidePopup() {
+            popup.classList.remove('active');
+        }
+
+        // Show popup after 15 seconds
+        setTimeout(showPopup, 15000);
+
+        // Close popup when clicking the close button
+        closePopup.addEventListener('click', hidePopup);
+
+        // Close popup when clicking outside
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                hidePopup();
+            }
+        });
+
+        // Handle join button click
+        joinButton.addEventListener('click', function() {
+            // Replace this URL with your WhatsApp group invite link
+            window.open('https://chat.whatsapp.com/your-group-invite-link', '_blank');
+            hidePopup();
+        });
+
+        // Prevent popup from showing again if user closes tab/browser
+        window.addEventListener('beforeunload', function() {
+            localStorage.setItem('popupShown', 'true');
+        });
+    });
+
+  </script>
+
+
+<script>
+  // Set the date we're counting down to (24 hours from now)
+  const countDownDate = new Date("Jan 25, 2025 15:37:25").getTime();
+
+  // Update the countdown every 1 second
+  const x = setInterval(function() {
+      // Get today's date and time
+      const now = new Date().getTime();
+      
+      // Find the distance between now and the countdown date
+      const distance = countDownDate - now;
+      
+      // Time calculations for days, hours, minutes and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Display the results
+      document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+      document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+      
+      // If the countdown is finished, write some text
+      if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("days").innerHTML = "00";
+          document.getElementById("hours").innerHTML = "00";
+          document.getElementById("minutes").innerHTML = "00";
+          document.getElementById("seconds").innerHTML = "00";
+      }
+  }, 1000);
+  </script>
+  <style>
+    /* Sidebar styles */
+    #burger-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 66.666667%;
+      height: 100vh;
+      background-color: #000;
+      z-index: 1001;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    /* Show the sidebar when active */
+    #burger-menu.active {
+      transform: translateX(0);
+    }
+
+    /* Hide the menu button when the sidebar is active */
+    #burger-menu-btn {
+      position: relative;
+      z-index: 1002;
+      cursor: pointer;
+    }
+
+    #burger-menu.active + #burger-menu-btn {
+      display: none; /* Hide the menu button */
+    }
+
+    /* Close button */
+    #burger-menu_close_btn {
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1002;
+    }
+
+    /* Other styles remain unchanged */
+  </style>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const burgerBtn = document.getElementById('burger-menu-btn');
+      const closeBtn = document.getElementById('burger-menu_close_btn');
+      const menu = document.getElementById('burger-menu');
+
+      burgerBtn.addEventListener('click', function() {
+          menu.classList.add('active');
+          burgerBtn.style.display = 'none'; // Hide the menu button
+      });
+
+      closeBtn.addEventListener('click', function() {
+          menu.classList.remove('active');
+          burgerBtn.style.display = 'block'; // Show the menu button
+      });
+  });
+  </script>
+  
+</body>
 </html>
+
+
+
+
+
+

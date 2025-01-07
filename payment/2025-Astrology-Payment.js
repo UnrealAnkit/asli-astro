@@ -65,7 +65,7 @@ function initAutocomplete() {
 google.maps.event.addDomListener(window, "load", initAutocomplete);
 
 function validateForm() {
-  const form = document.getElementById("childBirthForm");
+  const form = document.getElementById("2025-Astro-form");
   const requiredFields = form.querySelectorAll("[required]");
   let isValid = true;
 
@@ -134,12 +134,73 @@ const proceedToPaymentButton = document.getElementById(
 );
 proceedToPaymentButton.addEventListener("click", function (event) {
   event.preventDefault(); // Always prevent default to handle form submission manually
-  initiateRazorpayPayment();
-  // if (validateForm()) {
-  //   console.log("Form is valid. Proceeding to payment...");
-  //   // Add your payment processing logic here
-  // }
+  if (validateForm()) {
+    console.log("Form is valid. Proceeding to payment...");
+    initiateRazorpayPayment();
+  }
 });
+
+// Separate function for API call using async/await
+async function submitFormData(formData) {
+  try {
+    console.log("Submitting form data to the server:", formData);
+
+    const response = await fetch("https://backend.asliastro.com/submit-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    // Check if the response is successful
+    if (response.status === 200) {
+      console.log("Data saved successfully!");
+      // alert("Form submitted successfully!");
+    } else {
+      const errorData = await response.json();
+      console.error("Error response from server:", errorData);
+      // alert("There was an error submitting the form. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error.message);
+    // alert(
+    //   "There was an error submitting the form. Please check your connection and try again."
+    // );
+  }
+}
+
+var failed_saved = false;
+async function submitFailedPaymentFormData(formData) {
+  try {
+    console.log("Submitting form data to the server:", formData);
+
+    const response = await fetch(
+      "https://backend.asliastro.com/failed-payments",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+
+    // Check if the response is successful
+    if (response.status === 201) {
+      console.log("Data saved successfully!");
+      failed_saved = true;
+    } else {
+      const errorData = await response.json();
+      console.error("Error response from server:", errorData);
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error.message);
+    // alert(
+    //   "There was an error submitting the form. Please check your connection and try again."
+    // );
+  }
+}
 
 // const razorpayKey = "rzp_test_hugMDo9CN4UElb";
 function initiateRazorpayPayment() {
@@ -153,6 +214,24 @@ function initiateRazorpayPayment() {
     handler: function (response) {
       //handle payment success
       console.log(response);
+      // Gather form data into an object
+      const formData = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        dateOfBirth: document.getElementById("dateOfBirth").value,
+        gender: document.getElementById("gender").value,
+        timeOfBirth: document.getElementById("timeOfBirth").value || null, // Optional field
+        placeOfBirth: document.getElementById("place-of-birth").value,
+        phoneNumber: document.getElementById("phoneNumber").value,
+        whatsappNumber: document.getElementById("whatsappNumber").value,
+        maritalStatus: document.getElementById("maritalStatus").value || null, // Optional field
+        hasKids: document.getElementById("hasKids").value || null, // Optional field
+        requests: document.getElementById("additionalQuestions").value || null, // Optional field
+        referralSource: document.getElementById("referralSource").value || null, // Optional field
+      };
+
+      // Call the function to handle the API request
+      submitFormData(formData);
     },
     prefill: {
       name: "kee",
@@ -163,12 +242,20 @@ function initiateRazorpayPayment() {
       color: "#F37254",
     },
   };
-
   // Create a new Razorpay instance with the options
   const rzp = new Razorpay(options);
   rzp.on("payment.failed", function (response) {
     //handle payment failure
     console.log(response, "failRes");
+    const formData = {
+      first_name: document.getElementById("firstName").value,
+      last_name: document.getElementById("lastName").value,
+      number: document.getElementById("phoneNumber").value,
+      whatsapp_number: document.getElementById("whatsappNumber").value,
+    };
+
+    // Call the function to handle the API request
+    if (!failed_saved) submitFailedPaymentFormData(formData);
   });
   // Open the Razorpay payment dialog
   rzp.open();
