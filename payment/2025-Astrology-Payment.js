@@ -212,7 +212,7 @@ function initiateRazorpayPayment() {
     description: "Child Astrology",
     handler: function (response) {
       console.log("Payment successful. Payment ID: " + response.razorpay_payment_id);
-      window.location.href = "payment/payment-success.html";
+      window.location.href = "payment-failure.htmll";
     },
     prefill: {
       name: "kee",
@@ -226,7 +226,7 @@ function initiateRazorpayPayment() {
 
   rzp.on("payment.failed", function (response) {
     console.log("Payment failed", response);
-    window.location.href = "payment/payment-success.html";
+    window.location.href = "payment-failure.html";
   });
 
   rzp.open();
