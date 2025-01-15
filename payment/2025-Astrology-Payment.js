@@ -202,36 +202,17 @@ async function submitFailedPaymentFormData(formData) {
   }
 }
 
-// const razorpayKey = "rzp_test_hugMDo9CN4UElb";
 function initiateRazorpayPayment() {
-  const razorpayKey = "rzp_test_hugMDo9CN4UElb"; // Replace with your Razorpay key
-  const options = {
+  const razorpayKey = "rzp_test_hugMDo9CN4UElb";
+  const rzp = new Razorpay({
     key: razorpayKey,
-    amount: 1000, // Amount in paise (e.g., 100 rupees = 10000 paise)
+    amount: 1000,
     currency: "INR",
     name: "KETAN",
     description: "Child Astrology",
     handler: function (response) {
-      //handle payment success
-      console.log(response);
-      // Gather form data into an object
-      const formData = {
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
-        dateOfBirth: document.getElementById("dateOfBirth").value,
-        gender: document.getElementById("gender").value,
-        timeOfBirth: document.getElementById("timeOfBirth").value || null, // Optional field
-        placeOfBirth: document.getElementById("place-of-birth").value,
-        phoneNumber: document.getElementById("phoneNumber").value,
-        whatsappNumber: document.getElementById("whatsappNumber").value,
-        maritalStatus: document.getElementById("maritalStatus").value || null, // Optional field
-        hasKids: document.getElementById("hasKids").value || null, // Optional field
-        requests: document.getElementById("additionalQuestions").value || null, // Optional field
-        referralSource: document.getElementById("referralSource").value || null, // Optional field
-      };
-
-      // Call the function to handle the API request
-      submitFormData(formData);
+      console.log("Payment successful. Payment ID: " + response.razorpay_payment_id);
+      window.location.href = "payment/payment-success.html";
     },
     prefill: {
       name: "kee",
@@ -241,22 +222,12 @@ function initiateRazorpayPayment() {
     theme: {
       color: "#F37254",
     },
-  };
-  // Create a new Razorpay instance with the options
-  const rzp = new Razorpay(options);
-  rzp.on("payment.failed", function (response) {
-    //handle payment failure
-    console.log(response, "failRes");
-    const formData = {
-      first_name: document.getElementById("firstName").value,
-      last_name: document.getElementById("lastName").value,
-      number: document.getElementById("phoneNumber").value,
-      whatsapp_number: document.getElementById("whatsappNumber").value,
-    };
-
-    // Call the function to handle the API request
-    if (!failed_saved) submitFailedPaymentFormData(formData);
   });
-  // Open the Razorpay payment dialog
+
+  rzp.on("payment.failed", function (response) {
+    console.log("Payment failed", response);
+    window.location.href = "payment/payment-success.html";
+  });
+
   rzp.open();
 }
