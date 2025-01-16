@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Hotjar Tracking Code for https://ephemeral-malasada-31f19b.netlify.app/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:5269132,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asli Astro</title>
+    <title>Asli-Astro</title>
     <link rel="icon" type="image/x-icon" href="/images/logo-black.png" />
     <link href="./output.css" rel="stylesheet" />
     <link
@@ -270,6 +281,35 @@
         }
       }
     </style>
+    
+  </head>
+  <body class="font-font1 bg-white1 scroll-smooth">
+    <div class="banner">
+      <div class="banner-content">
+        <div class="timer-section">
+          <p class="attention-text">⚡ATTENTION! 2025 ANALYSIS IS CLOSING SOON!</p>
+          <div class="timer">
+            <div class="circle">
+              <span id="days">00</span>
+              <small>Days</small>
+            </div>
+            <div class="circle">
+              <span id="hours">00</span>
+              <small>Hours</small>
+            </div>
+            <div class="circle">
+              <span id="minutes">00</span>
+              <small>Min</small>
+            </div>
+            <div class="circle">
+              <span id="seconds">00</span>
+              <small>Sec</small>
+            </div>
+          </div>
+          <button class="bundle-button">GET YOUR BUNDLE</button>
+        </div>
+      </div>
+    </div>
     <style>
       .slick-slide {
         outline: none;
@@ -373,160 +413,151 @@
         background-color: #ea580c; /* orange-600 */
       }
     </style>
-    <style>
-      body {
-        padding-top: 0px;
-      }
 
-      .banner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #ff0000;
-        color: white;
-        padding: 4px 0;
-        z-index: 999;
-      }
 
-      .banner-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
-      .timer-section {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
+<style>
+  body {
+    padding-top: 0px;
+  }
 
-      .attention-text {
-        font-weight: bold;
-        margin: 0;
-        font-size: 14px;
-      }
+  .banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff0000;
+    color: white;
+    padding: 4px 0;
+    z-index: 999;
+  }
 
-      .timer {
-        display: flex;
-        gap: 8px;
-      }
+  .banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-      .circle {
-        background-color: white;
-        color: black;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2px;
-      }
+  .timer-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
 
-      .circle span {
-        font-size: 14px;
-        font-weight: bold;
-        line-height: 1;
-        margin: 0;
-      }
+  .attention-text {
+    font-weight: bold;
+    margin: 0;
+    font-size: 14px;
+  }
 
-      .circle small {
-        font-size: 9px;
-        margin-top: 1px;
-      }
+  .timer {
+    display: flex;
+    gap: 8px;
+  }
 
-      .bundle-button {
-        background-color: #00b300;
-        color: white;
-        padding: 6px 12px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 14px;
-      }
+  .circle {
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
 
-      .bundle-button:hover {
-        background-color: #008000;
-      }
+  .circle span {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0;
+  }
 
-      /* Adjust header positioning */
-      .hero {
-        margin-top: 45px; /* Match the body padding-top */
-      }
+  .circle small {
+    font-size: 9px;
+    margin-top: 1px;
+  }
 
-      /* Mobile responsiveness */
-      @media (max-width: 768px) {
-        body {
-          padding-top: 1.5px; /* Reduced padding for smaller banner */
-        }
-        
-        .timer-section {
-          flex-direction: column;
-          gap: 6px;
-          padding: 2px;
-        }
-        
-        .attention-text {
-          font-size: 12px; /* Smaller text for mobile */
-          text-align: center;
-        }
-        
-        .circle {
-          width: 35px;
-          height: 35px;
-        }
-        
-        .circle span {
-          font-size: 12px;
-        }
-        
-        .circle small {
-          font-size: 8px;
-        }
-        
-        .bundle-button {
-          padding: 4px 8px;
-          font-size: 12px;
-        }
-        
-        .hero {
-          margin-top: 90px;
-        }
-      }
-    </style>
-  </head>
-  <body class="font-font1 bg-white1 scroll-smooth">
-    <div class="banner">
-      <div class="banner-content">
-        <div class="timer-section">
-          <p class="attention-text">⚡ATTENTION! 2025 ANALYSIS IS CLOSING SOON!</p>
-          <div class="timer">
-            <div class="circle">
-              <span id="days">00</span>
-              <small>Days</small>
-            </div>
-            <div class="circle">
-              <span id="hours">00</span>
-              <small>Hours</small>
-            </div>
-            <div class="circle">
-              <span id="minutes">00</span>
-              <small>Min</small>
-            </div>
-            <div class="circle">
-              <span id="seconds">00</span>
-              <small>Sec</small>
-            </div>
-          </div>
-          <button class="bundle-button">GET YOUR BUNDLE</button>
-        </div>
-      </div>
-    </div>
+  .bundle-button {
+    background-color: #00b300;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .bundle-button:hover {
+    background-color: #008000;
+  }
+
+  /* Adjust header positioning */
+  .hero {
+    margin-top: 45px; /* Match the body padding-top */
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    body {
+      padding-top: 1.5px; /* Reduced padding for smaller banner */
+    }
+    
+    .timer-section {
+      flex-direction: column;
+      gap: 6px;
+      padding: 2px;
+    }
+    
+    .attention-text {
+      font-size: 12px; /* Smaller text for mobile */
+      text-align: center;
+    }
+    
+    .circle {
+      width: 35px;
+      height: 35px;
+    }
+    
+    .circle span {
+      font-size: 12px;
+    }
+    
+    .circle small {
+      font-size: 8px;
+    }
+    
+    .bundle-button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+    
+    .hero {
+      margin-top: 90px;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   </head>
   <body class="bg-white1">
@@ -552,11 +583,11 @@
           <nav class="text-white gap-8 flex items-center justify-between">
             <!-- <a href="Products.html">Shop</a> -->
             <a  onclick="showReviews()" href="#testimonials">Testimonials</a>
-            <a href="Contact-us.html">Contact</a>
+            <a href="payment/contact-us.html">Contact</a>
             <button
               class="free-session bg-black1 rounded-[35px] py-3 px-4 border border-black1 shadow-3xl"
             >
-              <a href="./payment/2025-Astrology-Payment.html">
+              <a href="./payment/Career-Payment.html">
                 Claim Your 2025 Session</a
               >
             </button>
@@ -575,11 +606,11 @@
             ></i>
             <img src="./images/logo-black.png" alt="" />
           </div>
-          <!-- <button
+          <button
             class="free-session ml-auto bg-black1 text-white rounded-[35px] py-3 px-4 border border-black1 shadow-3xl"
           >
-            <a href="./payment/2025-Astrology-Payment.html"> Claim Your 2025 Session</a>
-          </button> -->
+            <a href="./payment/Career-Payment.html"> Claim Your 2025 Session</a>
+          </button>
         </header>
         <div
           id="burger-menu"
@@ -619,47 +650,48 @@
             <span
               class="w-full border-b-2 border-white border-opacity-50 text-white flex items-center justify-between"
             >
-              <a class="w-full text-xl py-2" href="Contact-us.html">Contact</a>
+              <a class="w-full text-xl py-2" href="payment/contact-us.html">Contact</a>
               <i class="fa-solid text-2xl fa-arrow-right"></i>
             </span>
             <button
               class="free-session text-white my-8 md:text-[14px] bg-black1 rounded-[35px] py-3 px-4 border border-white border-opacity-50 shadow-3xl"
             >
-              <a href="./payment/2025-Astrology-Payment.html">
+              <a href="./payment/Career-Payment.html">
                 Claim Your 2025 Session</a
               >
             </button>
           </nav>
         </div>
         <div
-          class="mt-8 md:mt-6 w-4/5 mx-auto md:max-0 md:w-full md:px-2 text-white flex flex-col items-center justify-center gap-8"
-        >
-          <h1 class="font-semibold text-orange-600 text-4xl md:text-3xl leading-tight md:leading-relaxed">
-            <span class="block md:hidden mt-4 text-5xl md:text-4xl text-center">
-              Don't let 2025 pass you by! <br />
-              Claim your year with our forecast.
-            </span>
-            <span class="hidden md:block mt-4 text-5xl md:text-5xl text-center">
-              Don't let 2025 <br /> Pass you by! <br />
-              Claim your year with our forecast.
-            </span>
-          </h1>
-          <p class="text-2xl md:text-xl  font-medium text-white w-4/5 text-center md:w-5/5">
-            See your daily forecast, get personalized answers to your questions. Navigate the year with confidence and clarity.
-          </p>
-          <button
-            class="free-session md:mt-4  bg-black1 rounded-[35px] py-3 px-8 border border-black1 shadow-3xl"
-        >
-            <a class="flex items-center justify-center gap-4  md:text-xl" href="./payment/2025-Astrology-Payment.html">
-              
-              Know your 2024 now <i class="fas fa-arrow-right text-2xl md:text-xl"></i></a
-            >
-          </button>
-        </div>
+  class="mt-24 md:mt-6 w-4/5 md:w-11/12 mx-auto text-center text-white flex flex-col items-center justify-center gap-8"
+>
+  <h1 class="font-semibold text-orange-600 text-4xl md:text-3xl leading-tight md:leading-relaxed">
+    <!-- Navigate life's complex journey with the right trustworthy Vedic guide -->
+    <span class="block mt-4 text-3xl md:text-2xl">
+      2025 is 1% over. We will tell you how the rest of the year is going to be.
+    </span>
+  </h1>
+  <p class="text-lg md:text-base font-medium text-white w-4/5">
+    Navigate life's complex journey with the right trustworthy Vedic guide. Asli Astro will give you a 100% honest astrological report to see how every day of 2025 is going to be plus we will answer all your followup questions(*). Make better decisions for yourself and your loved ones with an insightful understanding of your future. 
+    <br />
+    <br />
+    
+  </p>
+  <a
+    href="./payment/2025-Astrology-Payment.html"
+    class="text-lg flex items-center justify-center gap-4 bg-black2 rounded-full py-3 px-10 md:px-5 border border-black2 shadow-lg text-white"
+  >
+  Know how your 2025 is going to be right now 
+    <i class="fas fa-arrow-right text-2xl md:text-xl"></i>
+  </a>
+</div>
+
+
+  
     </section>
 
     <section
-      class="overflow-hidden w-screen max-w-full pt-6 pb-20  h-max min-h-screen mt-8 md:mt-2 md:h-max px-20 md:px-4 md:py-4 md:pb-10 bg-bottom-4 md:bg-bottom-5 bg-no-repeat "
+      class="hero overflow-hidden w-screen max-w-full py-24  h-screen md:h-max px-20 md:px-4 md:py-8 bg-bottom-4 md:bg-bottom-5 bg-no-repeat "
     >
       <div
   class="flex flex-row items-start gap-6 md:flex-col-reverse md:items-start"
@@ -668,30 +700,30 @@
           <div id="main-slider" class="slick-slider mb-4">
             <div>
               <img
+                src="./images/child-astrology/1.png"
+                alt="Slide 1"
+                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
+              />
+            </div>
+            <div>
+              <img
                 src="./images/child-astrology/2.png"
                 alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
+                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/3.png"
+                src="./images/child-astrology/1.png"
                 alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
+                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/4.png"
+                src="./images/child-astrology/2.png"
                 alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
-              />
-            </div>
-            <div>
-              <img
-                src="./images/child-astrology/5.png"
-                alt="Slide 1"
-                class="min-w-full object-cover w-[500px] !h-[400px] rounded-lg shadow-md"
+                class="min-w-full object-cover w-[500px] !h-[350px] rounded-lg shadow-md"
               />
             </div>
           </div>
@@ -700,85 +732,94 @@
           <div id="thumb-slider" class="slick-slider md:!hidden">
             <div>
               <img
-                src="./images/child-astrology/2.png"
+                src="./images/child-astrology/1.png"
                 alt="Thumb 1"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/3.png"
+                src="./images/child-astrology/2.png"
                 alt="Thumb 2"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/4.png"
+                src="./images/child-astrology/1.png"
                 alt="Thumb 3"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
             <div>
               <img
-                src="./images/child-astrology/5.png"
+                src="./images/child-astrology/2.png"
                 alt="Thumb 4"
                 class="!w-[100px] !p-2 !h-[100px] rounded-md slick-thumb object-cover"
               />
             </div>
           </div>
         </div>
+        <!-- <div class="w-1/2 md:w-full">
+          <span class="text-sm flex items-center justify-start gap-2"
+            ><a href="./index.html">Home</a
+            ><img src="./images/breadcrumbs-arrow.svg" alt="" /><a
+              href="./Products.html"
+              >Products</a
+            ><img src="./images/breadcrumbs-arrow.svg" alt="" /><a
+              class="underline"
+              href="./2025-Astrology.html"
+              >2025 Astrology</a
+            >
+          </span> -->
           <div class="mt-0">
-            <h2 class="text-5xl font-medium leading-tight mb-6 text-gray-900">
-              2025 is going to be uncertain.<br/>
-              <span class="text-orange-500">Understand how this will affect you</span>
+            <h2 class="text-5xl font-medium">
+              2025 is going to be uncertain. Understand how this will affect you 
             </h2>
-            <div class="space-y-4">
-              <p class="text-xl text-gray-700 leading-relaxed">
-                No complex charts. No confusing symbols. Just clear, actionable insights into your 2025 journey.
-              </p>
-              <p class="text-xl text-gray-700 leading-relaxed">
-                AsliAstro is the only service offering detailed day-by-day kundali readings for 2025. Our expert astrologers translate ancient wisdom into practical guidance, helping you navigate life's opportunities and challenges with confidence.
-              </p>
-            </div>
+            <p class="mt-4 text-xl font-normal text-gray-700">
+                No complex charts. No confusing symbols. Just clear, actionable insights into your 2025 journey. AsliAstro is the only service offering detailed day-by-day kundali readings for 2025.Our expert astrologers translate ancient wisdom into practical guidance, helping you navigate life's opportunities and challenges with confidence.
+          </p>
           
-            <div class="flex flex-col rounded-xl p-0 mt-8">
-              <div class="flex items-start md:items-center justify-start gap-6 mb-4">
-                <div class="flex flex-col">
-                  <span class="text-3xl text-gray-500 line-through">₹ 1250</span>
-                  <span class="text-5xl font-bold text-green-600">₹ 499</span>
-                  <span class="text-sm text-green-600">Save ₹750 Today!</span>
-                </div>
-                <div class="flex flex-col items-center bg-white px-12 py-2 rounded-[30px] border border-yellow-400">
-                  <div class="flex items-center justify-center gap-2">
-                    <i class="fas fa-star text-yellow-400"></i>
-                    <span class="text-xl font-semibold">4.8/5</span>
-                  </div>
-                  <!-- <span class="text-lg text-gray-600 font-semibold">Excellent</span> -->
-                </div>
-              </div>
-
-              <div class="flex items-center gap-2 mb-6">
-                <span class="text-xl font-semibold text-gray-700">
-                  <span class="text-green-600 font-bold">6,977+</span> satisfied customers
-                </span>
-                <i class="fas fa-check-circle text-green-500"></i>
-              </div>
-
-              <button class="w-full py-6 bg-orange-500 hover:bg-orange-400 active:scale-95 transform transition-all duration-200 text-xl font-bold text-white rounded-xl flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                <i class="fas fa-lock"></i>
-                <a href="./payment/2025-Astrology-Payment.html">Secure Your 2025 Reading Now</a>
-              </button>
+            
+            <div
+              class="flex items-start md:items-center justify-start gap-10 mt-2"
+            >
+              <p class="text-3xl md:text-2xl">
+                <span class="text-3xl w-1/3 line-through md:text-lg"
+                  >₹ 20000</span
+                >
+                ₹ 15500
+              </p>
+              <p
+                class="rounded-full text-xl md:text-lg text-orange-500 px-4 py-2 border border-orange-500 bg-orange-100"
+              >
+                <i class="fas fa-star"></i>
+                &nbsp
+                <span class="">4.8/5</span>
+              </p>
             </div>
+            <div class="flex items-start justify-between mt-2">
+              <p class="text-2xl md:text-xl text-end text-gray-500">
+                <span class="text-green1"> 6977 </span> customers so far. 
+                <br />
+                <!-- 
+                 -->
+              </p>
+            </div>
+            <button
+              class="px-8 py-3 mt-2 bg-black text-xl font-semibold text-white rounded-xl"
+            >
+              <a href="./payment/2025-Astrology-Payment.html">Get Now</a>
+            </button>
           </div>
         </div>
       </div>
     </section>
 
     <section
-      class="relative bg-ganpati bg-contain bg-no-repeat bg-center py-28 px-[10%] pb-28 md:px-4 md:py-10 "
+      class="relative bg-ganpati bg-contain bg-no-repeat bg-center py-28 px-[10%] pb-28 md:px-4 md:py-10"
     >
-      <div class="absolute inset-0 bg-white bg-opacity-[0.65] w-full"></div>
+      <div class="absolute inset-0 bg-white bg-opacity-80 w-full"></div>
       <div class="relative z-10">
         <div class="details">
           <div class="tabs flex items-center justify-start mb-8 gap-4 py-3">
@@ -806,14 +847,14 @@
               class="list-disc pl-4 font-normal space-y-6 text-xl text-orange-700 py-3"
             >
               <li>
-                <strong class="font-normal text-2xl">Get a comprehensive overview of the major events and in 2025. You will get all the info without any charts or complexities.  Understand how these cosmic shifts will influence your personal and professional life.</strong
+                <strong class="font-bold text-2xl">Get a comprehensive overview of the major events and in 2025. You will get all the info without any charts or complexities.  Understand how these cosmic shifts will influence your personal and professional life.</strong
                 ><br />
                 <span class="text-gray-700 leading-7">
                   
                 </span>
               </li>
               <li>
-                <strong class="font-normal text-2xl"
+                <strong class="font-bold text-2xl"
                   >You will get 10 extra reports for 10 other aspects of your life </strong
                 ><br />
                 <span class="text-gray-700 leading-7">
@@ -823,7 +864,7 @@
                 </span>
               </li>
               <li>
-                <strong class="font-normal text-2xl">Receive practical advice and strategies to navigate the year successfully. Learn how to make the most of favorable periods and mitigate potential challenges by talking to our pandit jee in our whatsapp group</strong
+                <strong class="font-bold text-2xl">Receive practical advice and strategies to navigate the year successfully. Learn how to make the most of favorable periods and mitigate potential challenges by talking to our pandit jee in our whatsapp group</strong
                 ><br />
                 <span class="text-gray-700 leading-7">
                   <!-- Receive practical advice and strategies to navigate the year
@@ -832,7 +873,7 @@
                 </span>
               </li>
               <li>
-                <strong class="font-normal text-2xl">You will get extra 5 years of report from 2026 to 2030 </strong
+                <strong class="font-bold text-2xl">You will get extra 5 years of report from 2026 to 2030 </strong
                 ><br />
                 <span class="text-gray-700 leading-7">
                   
@@ -845,10 +886,10 @@
             <!-- Stats Section -->
             <div class="reviews-stats mb-8 p-6 bg-white rounded-lg shadow-md">
               <div class="flex items-center justify-between mb-4">
-                <h3 class="text-2xl font-bold">Customer Reviews:</h3>
+                <h3 class="text-2xl font-bold">Customer Reviews:Our Favorite Customer Reviews </h3>
                 <div class="flex items-center">
-                  <span class="text-2xl font-bold text-orange-500">4.2 / 5</span>
-                  <!-- <span class="text-gray-500 ml-2"></span> -->
+                  <span class="text-3xl font-bold text-orange-500">4.8</span>
+                  <span class="text-gray-500 ml-2">/ 5</span>
                 </div>
               </div>
               <div class="flex items-center gap-2">
@@ -935,7 +976,7 @@
                   <i class="faq-icon fas fa-chevron-down text-orange-500"></i>
                 </button>
                 <div class="faq-answer hidden p-6">
-                  <ul class="space-y-2 text-orange-700 text-lg">
+                  <ul class="space-y-2 text-gray-700 text-lg">
                     <li>
                       <i class="fas fa-lightbulb text-orange-400 mr-2"></i>Our
                       reports are based on detailed Vedic astrology analysis,
@@ -1045,9 +1086,106 @@
 
 
 
+
+
+ <section
+      style="background-image: url('./images/bundlebg.png')"
+      class="bundle w-screen max-w-full h-screen md:h-max pt-[5rem] md:pt-[1rem] md:pb-[8rem] md:mt-20 md:mb-8 bg-cover bg-center bg-no-repeat relative"
+    >
+      <div class="w-[40%] md:w-[90%] md:mx-auto ml-[8rem] relative z-10">
+        <h2
+          class="text-xl flex gap-4 items-center justify-start md:justify-center my-4 font-medium text-orange-600"
+        >
+          <img src="./images/star-sign.svg" alt="" />
+          Limited Offer
+        </h2>
+        <h3 class="block text-4xl my-2 font-semibold md:text-center md:hidden">
+          Unlock our Saving Bundle.
+        </h3>
+        <h3 class="block text-4xl my-2 font-semibold text-red1 md:hidden">
+          Save ₹19,500
+        </h3>
+        <h3 class="hidden text-center text-4xl my-2 font-semibold md:block">
+          Unlock our Savings Bundle. <span class="text-red1">Save ₹7,100</span>
+        </h3>
+        <p class="my-4 text-2xl md:text-center">
+          india first 100% honest human made astrological report that gives you a day by day report for every day 2025. Not just a one-time read,but a guide you can refer to everyday
+        </p>
+        <button
+          class="mr-auto md:mx-auto md:mt-[7rem] flex items-center justify-center mt-8 shadow-btnShadow2 gap-2 bg-orange-600 text-white px-8 py-3 rounded-2xl"
+        >
+          Preview The Bundle Now <img src="./images/right-arrow.svg" alt="" />
+        </button>
+        <p class="block md:hidden text-2xl mt-4">Includes:</p>
+        <div class="grid md:hidden gap-4 grid-cols-2">
+          <p class="flex text-orange-600 items-center justify-start gap-3">
+            <img src="./images/om.png" alt="" />
+            Kundali
+          </p>
+          <p class="flex text-orange-600 items-center justify-start gap-3">
+            <img src="./images/om.png" alt="" />
+            Daily Analysis
+          </p>
+          <p class="flex text-orange-600 items-center justify-start gap-3">
+            <img src="./images/om.png" alt="" />
+            Free e book on astrology
+          </p>
+          <p class="flex text-orange-600 items-center justify-start gap-3">
+            <img src="./images/om.png" alt="" />
+           10 years report like love report,career report
+          </p>
+          <p class="flex text-orange-600 items-center justify-start gap-3">
+            <img src="./images/om.png" alt="" />
+            Next 5 years report
+          </p>
+          <p class="flex text-orange-600 items-center justify-start gap-3">
+            <img src="./images/om.png" alt="" />
+            Whatsapp group access
+          </p>
+        </div>
+      </div>
+    </section>     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
   
   
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1273,21 +1411,21 @@
         <img src="./images/AsliAstro.png" class="" alt="" />
       </div>
       <div class="flex md:hidden flex-row justify-between mt-4 w-2/5">
-        <!-- <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
-          <h2 class="text-white1 mb-4">Product</h2>
-          <a href="/Products.html" class="text-gray-400"> Services</a>
-        </div> -->
+        <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
+          <!-- <h2 class="text-white1 mb-4">Product</h2>
+          <a href="/Products.html" class="text-gray-400"> Services</a> -->
+        </div>
         <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
           <h2 class="text-white1 mb-4">Company</h2>
-          <a href="about-us.html" class="text-gray-400"> About Us</a>
-          <a href="contact-us.html" class="text-gray-400"> Contact</a>
+          <a href="payment/about-us.html" class="text-gray-400"> About Us</a>
+          <a href="payment/contact-us.html" class="text-gray-400"> Contact</a>
         </div>
         <div class="w-1/5 flex items-start gap-2 flex-col justify-start">
           <h2 class="text-white1 mb-4">Legal</h2>
-          <a href="privacy-policy.html" class="text-gray-400">
+          <a href="payment/privacy-policy.html" class="text-gray-400">
             Privacy Policy</a
           >
-          <a href="terms-condition.html" class="text-gray-400">
+          <a href="payment/terms-condition.html" class="text-gray-400">
             Terms of Service</a
           >
         </div>
@@ -1295,21 +1433,21 @@
       <div class="hidden md:block w-[100%]">
         <img src="./images/AsliAstro.png" class="" alt="" />
         <div class="flex flex-row justify-between mt-8 w-full">
-          <!-- <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
-            <h2 class="text-white1 mb-4">Product</h2>
-            <a href="./Products.html" class="text-gray-400"> Services</a>
-          </div> -->
+          <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
+            <!-- <h2 class="text-white1 mb-4">Product</h2>
+            <a href="./Products.html" class="text-gray-400"> Services</a> -->
+          </div>
           <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
             <h2 class="text-white1 mb-4">Company</h2>
-            <a href="about-us.html" class="text-gray-400"> About Us</a>
-            <a href="Contact-us.html" class="text-gray-400"> Contact</a>
+            <a href="payment/about-us.html" class="text-gray-400"> About Us</a>
+            <a href="payment/contact-us.html" class="text-gray-400"> Contact</a>
           </div>
           <div class="w-1/3 flex items-start gap-2 flex-col justify-start">
             <h2 class="text-white1 mb-4">Legal</h2>
-            <a href="Privacy-policy.html" class="text-gray-400">
+            <a href="payment/privacy-policy.html" class="text-gray-400">
               Privacy Policy</a
             >
-            <a href="Terms-condition.html" class="text-gray-400">
+            <a href="payment/terms-condition.html" class="text-gray-400">
               Terms of Service</a
             >
           </div>
@@ -1680,7 +1818,7 @@
         <button id="join-button" class="join-button">Join now</button>
       </div>
     </div>
-  <script>
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.getElementById('popup');
         const closePopup = document.getElementById('close-popup');
@@ -1726,7 +1864,7 @@
         });
     });
 
-  </script>
+    </script>
 
 
 <script>
@@ -1820,11 +1958,8 @@
       });
   });
   </script>
-  
 </body>
 </html>
-
-
 
 
 
