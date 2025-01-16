@@ -136,27 +136,22 @@ proceedToPaymentButton.addEventListener("click", function (event) {
   event.preventDefault(); // Always prevent default to handle form submission manually
   if (validateForm()) {
     console.log("Form is valid. Proceeding to payment...");
-    initiateRazorpayPayment();
     // Add your payment processing logic here
+    initiateRazorpayPayment();
   }
 });
 
 function initiateRazorpayPayment() {
   const razorpayKey = "rzp_test_hugMDo9CN4UElb";
-  // Create a new Razorpay instance
   const rzp = new Razorpay({
     key: razorpayKey,
-    amount: 1000, // Amount in paise (e.g., 100 rupees = 10000 paise)
+    amount: 1000,
     currency: "INR",
     name: "KETAN",
     description: "Child Astrology",
-    // image: "path/to/your/logo.png", // Optional
     handler: function (response) {
-      // This function will be called when payment is successful
-      console.log(
-        "Payment successful. Payment ID: " + response.razorpay_payment_id
-      );
-      // You can add code here to update your server or show a success message
+      console.log("Payment successful. Payment ID: " + response.razorpay_payment_id);
+      window.location.href = "Payment-success.html";
     },
     prefill: {
       name: "kee",
@@ -168,6 +163,10 @@ function initiateRazorpayPayment() {
     },
   });
 
-  // Open the Razorpay payment dialog
+  rzp.on("payment.failed", function (response) {
+    console.log("Payment failed", response);
+    window.location.href = "payment-failure.html";
+  });
+
   rzp.open();
 }
