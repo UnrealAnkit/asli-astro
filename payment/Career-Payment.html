@@ -20,7 +20,7 @@
     <script src="./Career-Payment.js" defer></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeqHptX2h2cJQadBRfjVfTui9u__uJ9oc&libraries=places"></script>
-
+    
     <style>
       body {
         background-color: #fffaf5;
@@ -119,18 +119,18 @@
         .mb-6 {
           margin-bottom: 1rem;
         }
-
+        
         /* Make back button more touch-friendly on mobile */
         [href="../index.html"] {
           padding: 0.75rem 1rem;
           width: fit-content;
         }
-
+        
         /* Ensure proper order on mobile */
         .order-last {
           order: 999; /* This ensures it stays at the bottom on mobile */
         }
-
+        
         /* Remove duplicate button styles */
         #proceedToPaymentButtonMobile {
           display: none;
@@ -158,15 +158,9 @@
       }
       /* Optional: Add a subtle pulse animation on hover */
       @keyframes subtle-pulse {
-        0% {
-          transform: scale(1) translateX(0);
-        }
-        50% {
-          transform: scale(1.02) translateX(-2px);
-        }
-        100% {
-          transform: scale(1) translateX(0);
-        }
+        0% { transform: scale(1) translateX(0); }
+        50% { transform: scale(1.02) translateX(-2px); }
+        100% { transform: scale(1) translateX(0); }
       }
 
       [href="../index.html"]:hover {
@@ -206,7 +200,7 @@
           padding-left: 0.5rem;
           padding-right: 0.5rem;
         }
-
+        
         .accordion-content .text-sm {
           font-size: 0.875rem;
           line-height: 1.25rem;
@@ -245,7 +239,7 @@
         .accordion-header {
           padding: 1rem;
         }
-
+        
         .accordion-content .space-y-3 > div {
           padding: 0.75rem;
         }
@@ -299,28 +293,27 @@
         transform: translateX(-1px);
       }
     </style>
+
+
+
+
   </head>
   <body class="text-gray-800 p-4">
     <div
       class="max-w-4xl mx-auto bg-white bg-opacity-10 rounded-lg shadow-lg p-4 sm:p-6"
     >
+      
+
       <div class="flex items-center mb-4 sm:mb-6">
-        <a
-          href="../index.html"
-          class="group inline-flex text-orange-500 items-center mr-2"
-        >
-          <svg
-            class="w-8 h-8 transform transition-transform group-hover:-translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
+        <a href="../index.html" class="group inline-flex items-center mr-2">
+          <svg class="w-5 h-5 transform transition-transform group-hover:-translate-x-1" 
+               fill="none" 
+               stroke="currentColor" 
+               viewBox="0 0 24 24">
+            <path stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
           </svg>
         </a>
         <h2 class="text-2xl sm:text-3xl font-bold text-orange-500">
@@ -447,7 +440,7 @@
                       type="tel"
                       id="phoneNumber"
                       name="phoneNumber"
-                      class="input-field phone-input w-full rounded-md rounded-l-none text-gray-800"
+                      class="input-field phone-input w-full rounded-md text-gray-800"
                       required
                     />
                   </div>
@@ -469,7 +462,7 @@
                       type="tel"
                       id="whatsappNumber"
                       name="whatsappNumber"
-                      class="input-field phone-input w-full rounded-md rounded-l-none text-gray-800"
+                      class="input-field phone-input w-full rounded-md text-gray-800"
                       required
                     />
                   </div>
@@ -582,398 +575,206 @@
           <!-- Accordions -->
           <div class="space-y-2">
             <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
-              >
-                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
-                  >
-                    <i class="fas fa-chart-pie text-orange-600"></i>
-                  </div>
-                  <span class="font-medium text-gray-800"
-                    >Kundli and Divisional Birth Charts</span
-                  >
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Kundli and Divisional Birth Charts</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹399</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
-                  <span class="text-lg font-semibold text-orange-600"
-                    >₹399</span
-                  >
-                  <div class="w-6 h-6 flex items-center justify-center">
-                    <i
-                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
-                    ></i>
-                  </div>
+                
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <!-- Chart Items -->
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Lagna Chart</span>
+                                <p class="text-sm text-gray-600">Birth Ascendant Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Moon Chart</span>
+                                <p class="text-sm text-gray-600">Emotional & Mental Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Navamsha Chart</span>
+                                <p class="text-sm text-gray-600">Destiny & Marriage Analysis</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Chalit Chart</span>
+                                <p class="text-sm text-gray-600">Current Life Phase Analysis</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="accordion-content bg-orange-50/5">
-                <div class="p-4 space-y-3 border-t border-orange-100/10">
-                  <!-- Chart Items -->
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800">Lagna Chart</span>
-                      <p class="text-sm text-gray-600">
-                        Birth Ascendant Analysis
-                      </p>
-                    </div>
-                  </div>
-
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800">Moon Chart</span>
-                      <p class="text-sm text-gray-600">
-                        Emotional & Mental Analysis
-                      </p>
-                    </div>
-                  </div>
-
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Navamsha Chart</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Destiny & Marriage Analysis
-                      </p>
-                    </div>
-                  </div>
-
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Chalit Chart</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Current Life Phase Analysis
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
-              >
-                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
-                  >
-                    <i class="fas fa-star text-orange-600"></i>
-                  </div>
-                  <span class="font-medium text-gray-800"
-                    >Horoscope Analysis</span
-                  >
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-star text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Horoscope Analysis</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹1,399</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
-                  <span class="text-lg font-semibold text-orange-600"
-                    >₹1,399</span
-                  >
-                  <div class="w-6 h-6 flex items-center justify-center">
-                    <i
-                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
-                    ></i>
-                  </div>
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Planetary Positions</span>
+                                <p class="text-sm text-gray-600">Detailed analysis of celestial influences</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Life Predictions</span>
+                                <p class="text-sm text-gray-600">Future path and potential outcomes</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="accordion-content bg-orange-50/5">
-                <div class="p-4 space-y-3 border-t border-orange-100/10">
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Planetary Positions</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Detailed analysis of celestial influences
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Life Predictions</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Future path and potential outcomes
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
-              >
-                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
-                  >
-                    <i class="fas fa-om text-orange-600"></i>
-                  </div>
-                  <span class="font-medium text-gray-800"
-                    >Sacred Auspicious Sounds for Naamkaran</span
-                  >
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-om text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Sacred Auspicious Sounds for Naamkaran</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹700</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
-                  <span class="text-lg font-semibold text-orange-600"
-                    >₹700</span
-                  >
-                  <div class="w-6 h-6 flex items-center justify-center">
-                    <i
-                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
-                    ></i>
-                  </div>
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Name Selection</span>
+                                <p class="text-sm text-gray-600">Astrologically aligned naming guidance</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Sacred Sounds</span>
+                                <p class="text-sm text-gray-600">Vedic phonetic recommendations</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="accordion-content bg-orange-50/5">
-                <div class="p-4 space-y-3 border-t border-orange-100/10">
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Name Selection</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Astrologically aligned naming guidance
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Sacred Sounds</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Vedic phonetic recommendations
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="accordion bg-white/5 rounded-lg overflow-hidden mb-3">
-              <div
-                class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300"
-              >
-                <div class="flex items-center space-x-3 w-full sm:w-[65%]">
-                  <div
-                    class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center"
-                  >
-                    <i class="fas fa-user text-orange-600"></i>
-                  </div>
-                  <span class="font-medium text-gray-800"
-                    >Personality and Unique Qualities</span
-                  >
+                <div class="accordion-header flex flex-wrap sm:flex-nowrap justify-between items-center p-4 cursor-pointer hover:bg-orange-50/10 transition-all duration-300">
+                    <div class="flex items-center space-x-3 w-full sm:w-[65%]">
+                        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                            <i class="fas fa-user text-orange-600"></i>
+                        </div>
+                        <span class="font-medium text-gray-800">Personality and Unique Qualities</span>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                        <span class="text-lg font-semibold text-orange-600">₹2,100</span>
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-4 mt-2 sm:mt-0">
-                  <span class="text-lg font-semibold text-orange-600"
-                    >₹2,100</span
-                  >
-                  <div class="w-6 h-6 flex items-center justify-center">
-                    <i
-                      class="fas fa-chevron-down text-orange-600 transform transition-transform duration-300"
-                    ></i>
-                  </div>
+                <div class="accordion-content bg-orange-50/5">
+                    <div class="p-4 space-y-3 border-t border-orange-100/10">
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Character Analysis</span>
+                                <p class="text-sm text-gray-600">Detailed personality insights</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200">
+                            <div class="flex-shrink-0">
+                                <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="font-medium text-gray-800">Talent Identification</span>
+                                <p class="text-sm text-gray-600">Natural abilities and potential</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="accordion-content bg-orange-50/5">
-                <div class="p-4 space-y-3 border-t border-orange-100/10">
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Character Analysis</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Detailed personality insights
-                      </p>
-                    </div>
-                  </div>
-                  <div
-                    class="flex items-center space-x-4 p-2 hover:bg-orange-50/10 rounded-lg transition-colors duration-200"
-                  >
-                    <div class="flex-shrink-0">
-                      <svg
-                        class="w-6 h-6 text-orange-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <span class="font-medium text-gray-800"
-                        >Talent Identification</span
-                      >
-                      <p class="text-sm text-gray-600">
-                        Natural abilities and potential
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
